@@ -1,0 +1,59 @@
+{
+  "section": "READING_WRITING",
+  "domain": "craft_and_structure",
+  "domainLevel": 3,
+  "topic": "Cross-Text Connections",
+  "sequenceLevel": 8,
+  "scenarios": [
+    {
+      "order": 1,
+      "title": "Сравнение точек зрения и поиск точки согласия/разногласия",
+      "content": "В заданиях Cross-Text Connections даются два коротких текста (Text 1 и Text 2), посвященных одной теме. Ключевой шаг — четко определить позиции авторов до чтения вариантов ответов. Определите, согласен ли Автор 2 с Автором 1 полностью, частично уточняет его идею или напрямую опровергает главный тезис."
+    },
+    {
+      "order": 2,
+      "title": "Прогнозирование реакции Автора 2 на аргумент Автора 1",
+      "content": "Вопросы часто спрашивают: «Как Автор 2 прокомментировал бы утверждение из Текста 1?». Найдите в Тексте 2 конкретные факты или концепции, которые прямо пересекаются с этой мыслью из Текста 1. Ответ должен точно отражать логику именно Автора 2, а не ваше личное мнение."
+    },
+    {
+      "order": 3,
+      "title": "Фильтрация дистракторов с частичным совпадением и смешением авторов",
+      "content": "Распространенные ловушки — варианты ответов, которые верно описывают позицию Автора 1, но приписывают ее Автору 2, либо содержат слишком крайние оценки (например, полное отрицание вместо мягкой критики). Всегда перепроверяйте, какой именно автор является субъектом вопроса."
+    }
+  ],
+  "quiz": [
+    {
+      "orderInLevel": 1,
+      "stem": "Text 1\nElectric vehicles (EVs) are key to reducing urban air pollution. By replacing internal combustion engines with zero-emission electric motors, cities can significantly lower emissions of nitrogen oxides and particulate matter, leading to immediate public health benefits.\n\nText 2\nWhile EVs produce zero tailpipe emissions, their overall environmental benefit depends on how the electricity powering them is generated. In regions relying heavily on coal-fired power plants, driving an EV merely shifts carbon and pollutant emissions from city streets to power plant locations, offering limited net emission reductions.\n\nBased on the texts, how would the author of Text 2 most likely respond to the claim in Text 1 regarding the environmental benefits of EVs?",
+      "choiceA": "By arguing that the health benefits of EVs are overstated because power plants are located far from urban populations.",
+      "choiceB": "By qualifying the claim by noting that the net reduction in emissions depends on the energy sources used for electricity generation.",
+      "choiceC": "By asserting that internal combustion engines are ultimately cleaner than electric vehicles in all geographic regions.",
+      "choiceD": "By agreeing unconditionally that EVs eliminate environmental pollution regardless of power grid infrastructure.",
+      "correctChoice": "B",
+      "explanation": "Правильный ответ — B. Автор Текста 2 не отрицает пользу электромобилей полностью, но утонет (qualifies), что реальное снижение выбросов зависит от того, как вырабатывается электричество (уголь или чистые источники). Вариант A делает необоснованные заявления о расположении станций, C утверждает крайность про DVS, D противоречит критическому тону Текста 2.",
+      "difficulty": "EASY"
+    },
+    {
+      "orderInLevel": 2,
+      "stem": "Text 1\nHistorian Clara Vance argues that the rapid expansion of rail networks in the 19th century was the primary driver of industrial urbanization. Railroads allowed raw materials to be transported cheaply to factory hubs and finished goods to distant markets, making manufacturing concentration economically irresistible.\n\nText 2\nEconomic historian Liam O'Connor contends that industrial urbanization was already well underway before the widespread adoption of railways. O'Connor points to early factory centers powered by water wheels and canals, arguing that steam navigation and canal systems provided sufficient transport infrastructure to initiate rapid urban industrial growth.\n\nBased on the texts, how would O'Connor (Text 2) most likely characterize the view presented by Vance (Text 1)?",
+      "choiceA": "As correct in identifying rail networks as the sole cause of rural-to-urban migration patterns.",
+      "choiceB": "As overestimating the necessity of rail networks in initiating the process of industrial urbanization.",
+      "choiceC": "As failing to recognize that railroads eventually replaced canals as the dominant mode of freight transport.",
+      "choiceD": "As underestimating the total economic impact of 19th-century technological innovations on manufacturing.",
+      "correctChoice": "B",
+      "explanation": "Правильный ответ — B. Вэнс (Text 1) считает железные дороги главным двигателем урбанизации. О'Коннор (Text 2) возражает, что процесс начался еще до них благодаря каналам и водяным колесам. Таким образом, О'Коннор считает, что Вэнс переоценивает (overestimates) необходимость железных дорог для запускa урбанизации. Варианты A, C и D искажают суть спора между историками.",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "orderInLevel": 3,
+      "stem": "Text 1\nBiologist Dr. Aris Thorne proposes that vertical farming represents the most sustainable solution to global agricultural land shortages. By cultivating crops in stacked indoor layers under controlled LED environments, vertical farms use up to 95% less water and eliminate the need for chemical pesticides, allowing depleted farmland to be returned to natural wilderness.\n\nText 2\nResearcher Maya Lin acknowledges the water-saving advantages of vertical farming but points out its massive energy footprint. The artificial lighting and climate control systems required for high-density indoor growing consume immense quantities of electricity. Lin calculates that until renewable energy dominates national power grids, large-scale vertical farming will generate significantly higher greenhouse gas emissions per kilogram of produce than traditional open-field agriculture.\n\nBased on the texts, how would Maya Lin (Text 2) most likely view Dr. Thorne's assessment (Text 1) of vertical farming as the \"most sustainable solution\"?",
+      "choiceA": "She would dismiss his water-use data as scientifically inaccurate and unverified by independent studies.",
+      "choiceB": "She would contend that his evaluation is incomplete because it ignores the significant emissions associated with current energy demands.",
+      "choiceC": "She would argue that traditional open-field agriculture consumes more electricity than vertical farming systems.",
+      "choiceD": "She would agree that vertical farming is immediately viable in all countries regardless of energy grid composition.",
+      "correctChoice": "B",
+      "explanation": "Правильный ответ — B. Майя Лин признает плюсы по воде, но указывает на гигантский энергорасход и выбросы углерода при текущих источниках энергии. Поэтому она посчитает оценку Торна неполной (incomplete), так как он упустил из виду фактор энергопотребления. Вариант A ошибочно говорит об отрицании данных по воде, C утверждает противоположное фактам, D выражает согласие, которого нет в Тексте 2.",
+      "difficulty": "HARD"
+    }
+  ]
+}

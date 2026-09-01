@@ -1,0 +1,58 @@
+{
+  "domain": "problem_solving_and_data_analysis",
+  "domainLevel": 7,
+  "topic": "Data analysis & word problems",
+  "sequenceLevel": 24,
+  "scenarios": [
+    {
+      "order": 1,
+      "title": "Анализ комплексных текстовых задач и математическое моделирование",
+      "content": "Текстовые задачи высокого уровня сложности на Digital SAT требуют объединения нескольких концепций: пропорций, процентов, скоростей и интерпретации функций. Ключевой шаг — правильное переведение условий задачи на язык уравнений или неравенств. Четко определяйте, какие величины являются постоянными (константами), а какие — переменными, и внимательно следите за единицами измерения при составлении математической модели."
+    },
+    {
+      "order": 2,
+      "title": "Интерпретация результатов экспериментов и научных данных",
+      "content": "В задачах на анализ научных данных и результатов исследований проверяется умение оценивать взаимосвязи между переменными (положительная/отрицательная корреляция), делать обоснованные выводы и выявлять ограничения исследования. Помните: корреляция не означает причинно-следственную связь (correlation does not imply causation), если исследование не являлось контролируемым экспериментом со случайным распределением по группам."
+    },
+    {
+      "order": 3,
+      "title": "Прогнозирование, экстраполяция и доверительные интервалы",
+      "content": "Для оценки генеральной совокупности по выборке используются статистические модели и линии наилучшего соответствия (line of best fit). При экстраполяции (прогнозировании за пределами имеющихся данных) следует учитывать логические ограничения модели в реальном мире. Доверительные интервалы и погрешность измерений (margin of error) отражают степень неопределенности оценки и зависят от объема выборки."
+    }
+  ],
+  "quiz": [
+    {
+      "orderInLevel": 1,
+      "stem": "A food truck owner tracks the daily sales of lemonade and temperature in degrees Fahrenheit. The line of best fit for the data is y = 3.2x - 110, where x is the daily high temperature and y is the predicted sales in dollars. What is the predicted sales for a day with a high temperature of 85°F?",
+      "choiceA": "$162",
+      "choiceB": "$172",
+      "choiceC": "$272",
+      "choiceD": "$152",
+      "correctChoice": "A",
+      "explanation": "Подставим значение температуры x = 85 в уравнение линии наилучшего соответствия: y = 3.2(85) - 110 = 272 - 110 = 162. Таким образом, прогнозируемые продажи составляют $162. Правильный ответ — A.",
+      "difficulty": "EASY"
+    },
+    {
+      "orderInLevel": 2,
+      "stem": "A scientist models the growth of a bacterial colony using the equation P(t) = 500(1.4)^(t/3), where P(t) is the population t hours after the experiment begins. By what percentage does the population increase every 3 hours?",
+      "choiceA": "40%",
+      "choiceB": "14%",
+      "choiceC": "4%",
+      "choiceD": "140%",
+      "correctChoice": "A",
+      "explanation": "В уравнении P(t) = 500(1.4)^(t/3) основание степени равно 1.4. Каждые 3 часа показатель степени t/3 увеличивается на 1, а популяция умножается на множитель 1.4. Множитель 1.4 соответствует увеличению на 1.4 - 1 = 0.4, то есть на 40% каждые 3 часа. Правильный ответ — A.",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "orderInLevel": 3,
+      "stem": "A company surveyed a representative random sample of 500 households in a city with 40,000 households. The survey found that 35% of the sampled households own a pet, with a margin of error of 4%. Based on this survey, what is the estimated range for the total number of households in the city that own a pet?",
+      "choiceA": "12,400 to 15,600",
+      "choiceB": "14,000 to 16,000",
+      "choiceC": "13,600 to 14,400",
+      "choiceD": "12,000 to 16,000",
+      "correctChoice": "A",
+      "explanation": "Учитывая погрешность измерений в 4%, доля домохозяйств с домашними питомцами находится в диапазоне от 35% - 4% = 31% до 35% + 4% = 39%. Чтобы найти искомый диапазон для всего города (40,000 домохозяйств), вычислим: 31% от 40,000 = 0.31 * 40,000 = 12,400 домохозяйств; 39% от 40,000 = 0.39 * 40,000 = 15,600 домохозяйств. Таким образом, количество домохозяйств оценивается в диапазоне от 12,400 до 15,600. Правильный ответ — A.",
+      "difficulty": "HARD"
+    }
+  ]
+}

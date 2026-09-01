@@ -1,0 +1,58 @@
+{
+  "domain": "geometry_and_trigonometry",
+  "domainLevel": 4,
+  "topic": "Area & volume",
+  "sequenceLevel": 28,
+  "scenarios": [
+    {
+      "order": 1,
+      "title": "Площадь плоских и составных фигур",
+      "content": "Для вычисления площадей основных 2D-фигур применяются классические формулы: для параллелограмма A = b * h, для трапеции A = ((a + b) / 2) * h, для треугольника A = (1/2) * b * h. При работе со сложными или составными фигурами разбивайте их на более простые составные элементы (прямоугольники, треугольники, полукруги) и суммируйте их площади, либо вычитайте площади «пустых» внутренних областей из общей фигуры."
+    },
+    {
+      "order": 2,
+      "title": "Объем трехмерных тел",
+      "content": "Формулы объемов основных 3D-тел предоставляются в справочных материалах Digital SAT: для прямоугольного параллелепипеда V = l * w * h, для цилиндра V = π * r² * h, для конуса V = (1/3) * π * r² * h, для пирамиды V = (1/3) * B * h, для шара V = (4/3) * π * r³. Ключевой шаг при решении — правильное определение площади основания (B) и высоты (h), перпендикулярной основанию."
+    },
+    {
+      "order": 3,
+      "title": "Масштабирование и изменение линейных размеров",
+      "content": "При изменении всех линейных размеров подобной фигуры или тела с коэффициентом k: все линейные элементы (периметр, радиус, высота) изменяются в k раз; площадь поверхности возрастает в k² раз; объем возрастает в k³ раз. Например, если радиус и высота цилиндра увеличиваются в 3 раза, его объем увеличивается в 3³ = 27 раз."
+    }
+  ],
+  "quiz": [
+    {
+      "orderInLevel": 1,
+      "stem": "A rectangular prism has a length of 8 centimeters, a width of 5 centimeters, and a height of 10 centimeters. What is the volume of the rectangular prism, in cubic centimeters?",
+      "choiceA": "400",
+      "choiceB": "200",
+      "choiceC": "180",
+      "choiceD": "100",
+      "correctChoice": "A",
+      "explanation": "Объем прямоугольного параллелепипеда вычисляется по формуле V = l * w * h. Подставим данные значения: V = 8 * 5 * 10 = 400 кубических сантиметров. Правильный ответ — A.",
+      "difficulty": "EASY"
+    },
+    {
+      "orderInLevel": 2,
+      "stem": "A right circular cylinder has a height of 9 inches and a volume of 144π cubic inches. What is the radius of the base of the cylinder, in inches?",
+      "choiceA": "4",
+      "choiceB": "8",
+      "choiceC": "16",
+      "choiceD": "2",
+      "correctChoice": "A",
+      "explanation": "Формула объема цилиндра: V = π * r² * h. Подставим известные значения: 144π = π * r² * 9. Разделим обе части на 9π: r² = 144 / 9 => r² = 16. Извлекая квадратный корень, получаем r = 4 дюйма. Правильный ответ — A.",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "orderInLevel": 3,
+      "stem": "Two similar solid spheres, Sphere A and Sphere B, have surface areas of 36π square centimeters and 81π square centimeters, respectively. If the volume of Sphere A is 36π cubic centimeters, what is the volume of Sphere B, in cubic centimeters?",
+      "choiceA": "121.5π",
+      "choiceB": "81π",
+      "choiceC": "108π",
+      "choiceD": "243π",
+      "correctChoice": "A",
+      "explanation": "Отношение площадей поверхностей подобных тел равно k², где k — линейный коэффициент подобия. Найдём k²: k² = 36π / 81π = 36 / 81 = 4 / 9. Отсюда линейный коэффициент k = √(4/9) = 2 / 3. Отношение объемов подобных тел равно k³: V_A / V_B = (2/3)³ = 8 / 27. Подставим V_A = 36π: 36π / V_B = 8 / 27 => 8 * V_B = 36π * 27 => V_B = 972π / 8 = 121.5π. Правильный ответ — A.",
+      "difficulty": "HARD"
+    }
+  ]
+}

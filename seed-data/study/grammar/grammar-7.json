@@ -1,0 +1,59 @@
+{
+  "section": "READING_WRITING",
+  "domain": "craft_and_structure",
+  "domainLevel": 2,
+  "topic": "Text Structure & Purpose",
+  "sequenceLevel": 7,
+  "scenarios": [
+    {
+      "order": 1,
+      "title": "Определение главной риторической функции текста (Main Purpose)",
+      "content": "Вопросы на Main Purpose требуют понять, ЗАЧЕМ автор написал этот пассаж. Не путайте пересказ содержания с риторической целью: цель выражается действием (описать явление, оспорить теорию, предложить альтернативу). Отслеживайте глаголы в вариантах ответа (advocate, criticize, summarize) и проверяйте, соответствуют ли они общей направленности текста."
+    },
+    {
+      "order": 2,
+      "title": "Анализ логической структуры и развертывания мысли (Overall Structure)",
+      "content": "Вопросы на Overall Structure проверяют умение отслеживать развитие мысли от предложения к предложению. Схематично разбейте пассаж на этапы (например: «представление гипотезы → описание эксперимента → обсуждение ограничений»). Правильный вариант должен точно отражать хронологический и логический порядок всех частей текста."
+    },
+    {
+      "order": 3,
+      "title": "Определение роли отдельного предложения в контексте (Function of a Sentence)",
+      "content": "Если вопрос спрашивает о роли конкретного выделенного предложения, анализируйте его связь с соседними суждениями. Служит ли оно примером к предыдущему тезису, вводит ли контраргумент или уточняет условия? Избегайте вариантов ответов, которые верно описывают смысл самого предложения, но искажают его риторическую функцию в структуре абзаца."
+    }
+  ],
+  "quiz": [
+    {
+      "orderInLevel": 1,
+      "stem": "In 1912, Alfred Wegener formally proposed the theory of continental drift, suggesting that Earth's continents were once joined in a single landmass called Pangaea. Wegener supported his hypothesis with geological evidence, such as identical fossil formations found on widely separated coastlines. However, because he could not identify a convincing mechanical force driving the movement of continents, most geologists of his era rejected his ideas. It was not until the discovery of seafloor spreading in the 1960s that Wegener's core intuition was finally validated.\n\nWhich choice best states the main purpose of the text?",
+      "choiceA": "To summarize the historical reception and ultimate validation of Wegener's hypothesis.",
+      "choiceB": "To argue that 20th-century geologists were unjustified in rejecting Wegener's evidence.",
+      "choiceC": "To detail the specific mechanical forces that cause seafloor spreading across ocean basins.",
+      "choiceD": "To contrast Wegener's fossil evidence with modern geological measurement techniques.",
+      "correctChoice": "A",
+      "explanation": "Правильный ответ — A. Текст кратко излагает историю гипотезы Вегенера: ее выдвижение, неприятие современниками из-за отсутствия механизма и последующее признание в 1960-х годах. Глагол «summarize» точно описывает эту цель. Вариант B выражает слишком оценочную позицию, C и D сфокусированы на узких деталях, а не на цели всего текста.",
+      "difficulty": "EASY"
+    },
+    {
+      "orderInLevel": 2,
+      "stem": "Many evolutionary biologists long assumed that dark coloration in desert reptiles evolved solely as a thermoregulatory adaptation to absorb solar heat in cool morning hours. However, recent physiological studies on desert lizards revealed that dark pigmentation also provides significant protection against intense ultraviolet (UV) radiation, which degrades vital folate in skin tissues. Furthermore, researchers observed that desert lizards in shaded microhabitats exhibit similar melanin density to those in fully exposed rocks. These findings suggest that UV protection, rather than thermoregulation alone, plays a critical role in driving melanin evolution in arid environments.\n\nWhich choice best describes the overall structure of the text?",
+      "choiceA": "A long-held scientific assumption is introduced, new empirical evidence challenging it is presented, and an alternative conclusion is drawn.",
+      "choiceB": "A hypothesis is proposed, a series of experimental methodologies are detailed, and the initial hypothesis is fully confirmed.",
+      "choiceC": "A biological phenomenon is defined, two competing theories are contrasted, and both are shown to be scientifically invalid.",
+      "choiceD": "A research study is summarized, its flaws are highlighted by critics, and a new study is proposed to resolve the debate.",
+      "correctChoice": "A",
+      "explanation": "Правильный ответ — A. Структура текста такова: 1) Введение старого представления (терморегуляция), 2) Новые данные (защита от УФ и наблюдения в тени), 3) Новый пересмотренный вывод. Вариант B некорректен, так как гипотеза не подтвердилась в первоначальном виде; C ошибочен, так как теории не признаны недействительными; D неверно говорит о «критиках» и «новых исследованиях».",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "orderInLevel": 3,
+      "stem": "Economists have traditionally analyzed consumer spending using models that assume rational decision-making based on complete market information. Behavioral economist Dr. Elena Rostova challenged this paradigm by demonstrating that cognitive biases regularly distort spending patterns. In a seminal experiment, Rostova offered participants choices between subscription plans with decoy options designed to exploit framing effects. **The vast majority of participants selected higher-cost plans when a decoy was present, despite having access to clear pricing tables.** This outcome illustrated that market choices are heavily influenced by subtle contextual presentation rather than objective price evaluation alone.\n\nWhich choice best describes the function of the highlighted sentence in the text as a whole?",
+      "choiceA": "It presents the specific experimental finding that substantiates Rostova's challenge to traditional economic models.",
+      "choiceB": "It outlines a theoretical limitation in Rostova's experimental design that was later corrected by subsequent researchers.",
+      "choiceC": "It provides a counterexample that defends traditional economic models against Rostova's behavioral criticism.",
+      "choiceD": "It introduces a new definition of rational decision-making that reconciles traditional models with behavioral findings.",
+      "correctChoice": "A",
+      "explanation": "Правильный ответ — A. Выделенное предложение описывает конкретный результат эксперимента Ростовой (большинство поддалось на приманку), который подтверждает ее тезис против традиционных моделей. Варианты B, C и D искажают риторическую функцию: предложение не описывает ошибку эксперимента (B), не защищает старые модели (C) и не дает нового определения рациональности (D).",
+      "difficulty": "HARD"
+    }
+  ]
+}

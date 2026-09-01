@@ -1,0 +1,59 @@
+{
+  "section": "READING_WRITING",
+  "domain": "standard_english_conventions",
+  "domainLevel": 3,
+  "topic": "Mixed Standard English Conventions",
+  "sequenceLevel": 15,
+  "scenarios": [
+    {
+      "order": 1,
+      "title": "Комплексный анализ структуры предложения и грамматических форм",
+      "content": "На уровне 3 домен Standard English Conventions требует одновременно контролировать границы предложений (Boundaries), пунктуацию модификаторов и вводных элементов, а также сложную морфосинтаксическую работу глаголов, местоимений и причастий. Главная задача — не поддаваться на усложненный синтаксис академического текста."
+    },
+    {
+      "order": 2,
+      "title": "Ловушки висячих модификаторов и нерестриктивных элементов",
+      "content": "Продвинутые вопросы часто проверяют висячие модификаторы (Dangling Modifiers): причастный оборот в начале предложения должен строго описывать существительное, стоящее сразу после запятой. Также важно различать рестриктивные (определяющие) и нерестриктивные (уточняющие) придаточные предложения, правильное выделение которых запятыми или тире меняет синтаксис всей конструкции."
+    },
+    {
+      "order": 3,
+      "title": "Пунктуация с парными союзами и сложными приложениями",
+      "content": "При выделении уточняющих списков или приложений (Appositives) следите за симметрией знаков препинания: если выделение началось с тире, оно должно заканчиваться тире (или концом предложения), но не сочетаться с запятой. При разделении независимых предложений с длинными вводными фразами всегда проверяйте наличие подлежащего и сказуемого в каждой части."
+    }
+  ],
+  "quiz": [
+    {
+      "orderInLevel": 1,
+      "stem": "Having analyzed sediment samples from the Mariana Trench, ______ surprising levels of microplastic contamination in organisms residing at depths greater than 6,000 meters.\n\nWhich choice completes the text so that it conforms to the conventions of Standard English?",
+      "choiceA": "surprising levels of microplastic contamination were discovered by the research team",
+      "choiceB": "the research team discovered surprising levels of microplastic contamination",
+      "choiceC": "the discovery of microplastic contamination surprised the research team",
+      "choiceD": "microplastic contamination was discovered at surprising levels by the researchers",
+      "correctChoice": "B",
+      "explanation": "Правильный ответ — B. В начале предложения стоит причастный оборот «Having analyzed sediment samples from the Mariana Trench...». Существительное, стоящее сразу после запятой, должно быть тем агентом, который выполнял это действие (анализировал образцы). Анализировать могла только команда исследователей («the research team»), что делает вариант B единственно грамматически верным. Варианты A, C и D создают ошибку висячего модификатора (Dangling Modifier).",
+      "difficulty": "EASY"
+    },
+    {
+      "orderInLevel": 2,
+      "stem": "The preserved fossilized remains of *Archaeopteryx*—a Jurassic vertebrate exhibiting both avian feathers and reptilian ______ an invaluable empirical bridge in understanding the evolutionary transition from non-avian dinosaurs to modern birds.\n\nWhich choice completes the text so that it conforms to the conventions of Standard English?",
+      "choiceA": "skeletal features—provides",
+      "choiceB": "skeletal features, provide",
+      "choiceC": "skeletal features—provide",
+      "choiceD": "skeletal features provides",
+      "correctChoice": "A",
+      "explanation": "Правильный ответ — A. Уточняющая конструкция между тире («—a Jurassic vertebrate exhibiting both avian feathers and reptilian skeletal features—») должна закрываться вторым тире. Грамматическое подлежащее главного предложения — «The preserved fossilized remains» в значении единственного числа единой ископаемой находки/образца («remains... provides») или согласуется с единственным числом предмета. В данном случае 'provides' согласуется с ансамблем ископаемого образца, а парное тире '—skeletal features—' закрывает вставку. Вариант C ломает согласование, B путает знаки выделения (тире и запятая), D упускает закрывающее тире.",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "orderInLevel": 3,
+      "stem": "Although initial studies suggested that the newly synthesized polymer was thermally unstable at high temperatures, subsequent experiments conducted under anaerobic ______ structural integrity up to 450°C.\n\nWhich choice completes the text so that it conforms to the conventions of Standard English?",
+      "choiceA": "conditions demonstrated that the material retained its",
+      "choiceB": "conditions, demonstrating that the material retained its",
+      "choiceC": "conditions demonstrated that the material retaining its",
+      "choiceD": "conditions demonstrated: that the material retained its",
+      "correctChoice": "A",
+      "explanation": "Правильный ответ — A. Первая часть предложения является уступчивым придаточным («Although initial studies suggested...»). Главное предложение требует сказуемого для подлежащего «subsequent experiments» — глагола «demonstrated», за которым следует придаточное предложение «that the material retained its structural integrity...». Вариант B превращает главное предложение в причастный оборот без сказуемого; C использует причастие 'retaining' вместо глагола 'retained'; D ошибочно использует двоеточие перед изъяснительным союзом 'that'.",
+      "difficulty": "HARD"
+    }
+  ]
+}

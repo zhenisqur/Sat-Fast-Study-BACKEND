@@ -1,0 +1,59 @@
+{
+  "section": "READING_WRITING",
+  "domain": "information_and_ideas",
+  "domainLevel": 5,
+  "topic": "Mixed Information and Ideas",
+  "sequenceLevel": 5,
+  "scenarios": [
+    {
+      "order": 1,
+      "title": "Интеграция навыков домена Information and Ideas на продвинутом уровне",
+      "content": "На уровне 5 задание по домену Information and Ideas объединяет в себе несколько типов анализа: определение главной мысли (Central Idea), поиск текстовых (Command of Evidence: Textual) или количественных доказательств (Command of Evidence: Quantitative), а также построение умозаключений (Inferences). Главный навык — умение быстро переключаться между стратегиями: от выявления широкого контекста к точному сопоставлению данных в графиках и логическим выводам."
+    },
+    {
+      "order": 2,
+      "title": "Сложная структурированная интерпретация и межтекстовый синтез",
+      "content": "В сложных академических пассажах SAT аргументация часто включает скрытые допущения, противоположные гипотезы или интерпретацию комплексных научных экспериментов. При анализе вопросов не забывайте абстрагироваться от фоновых знаний и опираться исключительно на логику, заложенную автором в отрывке или представленной таблице."
+    },
+    {
+      "order": 3,
+      "title": "Финальная проверка дистракторов высшей сложности",
+      "content": "Дистракторы уровня 5 создаются так, чтобы вызывать максимальное сомнение. Они могут использовать точные термины из текста, частично совпадать с реальными историческими/научными фактами или цитировать корректные цифры из графика, но при этом подменять причину и следствие, смещать область действия гипотезы или давать необоснованно категоричный вывод."
+    }
+  ],
+  "quiz": [
+    {
+      "orderInLevel": 1,
+      "stem": "The following text is adapted from a research paper on cognitive archaeology.\n\nFor decades, scholars disputed whether early hominins possessed the abstract reasoning required for deliberate geometric design, or if decorative patterns on artifacts were merely accidental byproducts of tool sharpening. Recently, archaeologists analyzed engraved ochre fragments from Blombos Cave in South Africa, dated to 73,000 years ago. Micro-CT scanning revealed that the cross-hatched lines were created using systematically varied pressure and distinct directional shifts, ruling out mechanical wear from stone processing. These findings indicate that the markings represent intentional symbolic activity rather than utilitarian side effects.\n\nWhich choice best states the main idea of the text?",
+      "choiceA": "Micro-CT scanning is the only reliable method for determining the age of ancient ochre artifacts.",
+      "choiceB": "Analysis of Blombos Cave artifacts demonstrates that early hominins deliberately created symbolic patterns.",
+      "choiceC": "Early hominins used engraved ochre primarily as functional tools for processing stone equipment.",
+      "choiceD": "Scholars now agree that abstract reasoning developed much later than 73,000 years ago.",
+      "correctChoice": "B",
+      "explanation": "Правильный ответ — B. Текст описывает давний спор о том, были ли узоры случайными или намеренными, и приводит результаты анализа находок из пещеры Бломбос, которые доказывают намеренный символический характер гравировок. Вариант A делает крайнее заявление («only reliable method»), C прямо противоречит выводу исследования («functional tools»), а D противоречит временной рамке, доказанной в тексте.",
+      "difficulty": "EASY"
+    },
+    {
+      "orderInLevel": 2,
+      "stem": "Average Annual Growth Rate of Forest Canopy Cover (%) by Management Strategy (2010–2020)\n- Strict Conservation Reserve: Primary Forest = +0.2%; Secondary Forest = +1.1%\n- Community-Managed Timber Zone: Primary Forest = -0.4%; Secondary Forest = +2.8%\n- Unrestricted Agricultural Margin: Primary Forest = -3.1%; Secondary Forest = -1.5%\n\nAn ecologist argues that while strict conservation reserves effectively safeguard fragile primary forests against degradation, community-managed zones offer superior conditions for the rapid regeneration of secondary forests.\n\nWhich choice best uses data from the table to support the ecologist's argument?",
+      "choiceA": "Primary forests in Unrestricted Agricultural Margins experienced an annual canopy growth rate of -3.1%, whereas secondary forests grew at +1.1%.",
+      "choiceB": "Strict Conservation Reserves achieved a +0.2% annual growth rate in primary forests, preventing canopy loss, while Community-Managed Timber Zones achieved a +2.8% growth rate in secondary forests, exceeding all other management strategies.",
+      "choiceC": "Community-Managed Timber Zones recorded a negative growth rate of -0.4% in secondary forests, proving less effective than Strict Conservation Reserves.",
+      "choiceD": "Secondary forests in Strict Conservation Reserves grew at +2.8% annually, outperforming primary forests in the same management zone.",
+      "correctChoice": "B",
+      "explanation": "Правильный ответ — B. Тезис эколога двоякий: 1) строгие заповедники защищают первичные леса (+0.2%), 2) общинные зоны наиболее эффективны для вторичных лесов (+2.8%). Вариант B использует корректные данные таблицы для подкрепления обеих частей аргумента. Варианты A, C и D содержат искажения данных и путаницу между категориями лесов.",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "orderInLevel": 3,
+      "stem": "Ecologists studying alpine plant communities observed that high-altitude cushion plants act as \"nurse species,\" trapping warmth and moisture beneath their dense canopies. In harsh alpine environments, subdominant flowering plants growing inside cushion canopies exhibit higher survival rates than those growing in open soil. However, researchers noted that when nutrient availability in the soil is artifically increased through fertilization experiments, the survival rate of subdominant plants inside cushion canopies decreases markedly relative to those in open soil, as cushion plants rapidly expand their root networks and outcompete neighboring species for space and light. This finding suggests that ______\n\nWhich choice most logically completes the text?",
+      "choiceA": "cushion plants transition from a beneficial, facilitative role to a competitive one when soil nutrient limitations are removed.",
+      "choiceB": "subdominant flowering plants rely on cushion plants for survival regardless of ambient soil nutrient conditions.",
+      "choiceC": "fertilization permanently destroys the structural integrity of cushion plant canopy structures in alpine zones.",
+      "choiceD": "high-altitude environments with abundant nutrients support fewer total plant species than nutrient-poor alpine zones.",
+      "correctChoice": "A",
+      "explanation": "Правильный ответ — A. Текст показывает, что в бедной почве растения-подушки помогают другим видам (facilitation), но при внесении удобрений начинают вытеснять их, разрастаясь и соперничая за свет и место (competition). Отсюда логический вывод: снятие ограничений по питательным веществам меняет характер взаимодействия с помощи на конкуренцию. Вариант B противоречит тексту, C и D содержат необоснованные широкие спекуляции.",
+      "difficulty": "HARD"
+    }
+  ]
+}

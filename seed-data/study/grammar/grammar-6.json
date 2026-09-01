@@ -1,0 +1,59 @@
+{
+  "section": "READING_WRITING",
+  "domain": "craft_and_structure",
+  "domainLevel": 1,
+  "topic": "Words in Context",
+  "sequenceLevel": 6,
+  "scenarios": [
+    {
+      "order": 1,
+      "title": "Определение значения слова по контекстуальным подсказкам",
+      "content": "В заданиях Words in Context слова часто используются в переносном или специализированном академическом значении. Не полагайтесь только на самое распространенное определение слова. Внимательно читайте окружающие предложения: они содержат синонимичные подсказки, контрасты или описательные детали, определяющие точное значение."
+    },
+    {
+      "order": 2,
+      "title": "Подстановка вариантов ответа в предложение",
+      "content": "Эффективный метод решения — мысленно заблокировать целевое пропущенное слово, сформулировать свой собственный синоним на основе смысла предложения, а затем подставить каждый вариант ответа. Вариант должен идеально вписываться не только по значению, но и по стилю и грамматической сочетаемости."
+    },
+    {
+      "order": 3,
+      "title": "Фильтрация «ложных друзей» и ловушек вторичных значений",
+      "content": "Составители SAT часто включают в варианты ответов значения слова, которые верны в других контекстах, но совершенно не подходят к данному отрывку. Всегда проверяйте, сохраняет ли предложение с выбранным словом исходную логическую связь автора."
+    }
+  ],
+  "quiz": [
+    {
+      "orderInLevel": 1,
+      "stem": "The following text is adapted from a passage about urban architecture.\n\nWhile early 20th-century architects often prioritized ornate decoration and elaborate stone carvings, modernists argued that a building's structure should be straightforward and functional. They favored simple geometric forms and clean lines to ______ the cluttered visual style of previous eras.\n\nWhich choice completes the text with the most logical and precise word or phrase?",
+      "choiceA": "reject",
+      "choiceB": "emulate",
+      "choiceC": "conceal",
+      "choiceD": "praise",
+      "correctChoice": "A",
+      "explanation": "Правильный ответ — A. Контекст описывает противопоставление: модернисты предпочитали простые геометрические формы и чистые линии в противовес украшательству предыдущих эпох. Слово «reject» (отвергать) точно передает этот отказ от «загроможденного» стиля. «Emulate» (подражать) и «praise» (хвалить) противоречат смыслу, а «conceal» (скрывать) не подходит по смыслу.",
+      "difficulty": "EASY"
+    },
+    {
+      "orderInLevel": 2,
+      "stem": "Dr. Aris Thorne's research on marine ecosystems is remarkably ______; by combining satellite telemetry, genetic sequencing, and historical fishing logs, his team built a comprehensive model of coastal fish migration that leaves few questions unanswered.\n\nWhich choice completes the text with the most logical and precise word or phrase?",
+      "choiceA": "thorough",
+      "choiceB": "ambiguous",
+      "choiceC": "speculative",
+      "choiceD": "superficial",
+      "correctChoice": "A",
+      "explanation": "Правильный ответ — A. Подсказка в тексте («combining satellite telemetry, genetic sequencing, and historical logs... comprehensive model... leaves few questions unanswered») указывает на глубину и полноту исследования. Слово «thorough» (исчерпывающий, тщательный) идеально подходит. «Ambiguous» (двусмысленный), «speculative» (умозрительный) и «superficial» (поверхностный) противоречат описанию.",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "orderInLevel": 3,
+      "stem": "In her critical analysis of 19th-century novels, literary scholar Clara Vance argues that minor characters are rarely included merely as decorative background elements; rather, their subtle interactions often ______ the underlying ideological conflicts that drive the central plot.\n\nWhich choice completes the text with the most logical and precise word or phrase?",
+      "choiceA": "mirror",
+      "choiceB": "alleviate",
+      "choiceC": "fabricate",
+      "choiceD": "suppress",
+      "correctChoice": "A",
+      "explanation": "Правильный ответ — A. Автор утверждаeт, что второстепенные персонажи не просто декор, а отражают («mirror») ключевые идеологические конфликты сюжета. «Alleviate» (облегчать), «fabricate» (фабриковать) и «suppress» (подавлять) искажают смысл суждения о роли второстепенных персонажей.",
+      "difficulty": "HARD"
+    }
+  ]
+}

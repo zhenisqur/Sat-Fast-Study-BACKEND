@@ -1,0 +1,59 @@
+{
+  "section": "READING_WRITING",
+  "domain": "expression_of_ideas",
+  "domainLevel": 2,
+  "topic": "Transitions",
+  "sequenceLevel": 11,
+  "scenarios": [
+    {
+      "order": 1,
+      "title": "Классификация логических связей между предложениями",
+      "content": "В заданиях на Transitions ключевая задача — определить точно тип логической связи между высказываниями. Выделяют 4 основные категории: 1) Контраст (however, nevertheless, on the other hand), 2) Дополнение/Усиление (furthermore, in addition, moreover), 3) Причина и следствие (therefore, consequently, as a result), 4) Иллюстрация/Уточнение (for instance, specifically, in fact). Всегда читайте предложение ДО и ПОСЛЕ пропуска без вводного слова."
+    },
+    {
+      "order": 2,
+      "title": "Правило двух предложений и исключение грамматически эквивалентных синонимов",
+      "content": "Если два варианта ответа принадлежат к одной и той же категории (например, furthermore и in addition) и выполняют абсолютно одинаковую логическую функцию, их оба обычно можно сразу исключить. Ищите категорию, которая единственно верно отражает смысловой сдвиг автора."
+    },
+    {
+      "order": 3,
+      "title": "Анализ скрытого контраста и условных связей",
+      "content": "На средних и высоких уровнях сложность заключаются в распознавании неявного противопоставления или хронологического последовательного сдвига. Не торопитесь выбирать причинно-следственные слова (therefore), если второе предложение лишь конкретизирует временную последовательность или приводит опровержение фонового тезиса."
+    }
+  ],
+  "quiz": [
+    {
+      "orderInLevel": 1,
+      "stem": "In the early 20th century, many astronomers believed that the Milky Way contained all the stars in the universe. In 1923, Edwin Hubble measured the distance to the Andromeda Nebula and proved that it was an entirely separate galaxy. ______, scientists were forced to fundamentally revise their understanding of the cosmos's scale.\n\nWhich choice completes the text with the most logical transition?",
+      "choiceA": "Consequently",
+      "choiceB": "In contrast",
+      "choiceC": "For example",
+      "choiceD": "Nevertheless",
+      "correctChoice": "A",
+      "explanation": "Правильный ответ — A. Второе предложение говорит о том, что Хаббл доказал существование других галактик. Третье предложение описывает результат этого открытия: ученые были вынуждены пересмотреть масштабы космоса. Слово «Consequently» (в результате, следовательно) выражает причинно-следственную связь. «In contrast» выражает противопоставление, «For example» — пример, «Nevertheless» — уступку/вопреки этому.",
+      "difficulty": "EASY"
+    },
+    {
+      "orderInLevel": 2,
+      "stem": "Many standard indoor fertilizers supply plants with high concentrations of nitrogen to rapidly promote leaf growth. Excess nitrogen runoff, however, can alter soil pH and harm beneficial mycorrhizal fungi. ______, organic slow-release alternatives provide nutrients gradually without disrupting the delicate microbial balance in the soil.\n\nWhich choice completes the text with the most logical transition?",
+      "choiceA": "In addition",
+      "choiceB": "Alternatively",
+      "choiceC": "Indeed",
+      "choiceD": "Thus",
+      "correctChoice": "B",
+      "explanation": "Правильный ответ — B. Первые два предложения описывают стандартные удобрения и их негативные последствия (избыток азота разрушает грибковый баланс). Следующее предложение предлагает другой вариант решения — органические медленнодействующие альтернативы. Слово «Alternatively» (в качестве альтернативы) идеально связывает эти два подхода. «In addition» не подходит, так как это не добавление аналогичного факта, «Indeed» — усиление, «Thus» — следствие.",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "orderInLevel": 3,
+      "stem": "Ethnomusicologist Dr. Ronald Cole long maintained that the traditional polyphonic vocal styles of the Georgian highlands evolved entirely independently of Western European harmonic traditions. Critics pointed out that medieval trade routes through the Caucasus regularly facilitated cultural exchange between Byzantine singers and local musicians. ______, recent comparative acoustic research revealed that Georgian vocal intervals follow a unique microtonal tuning scale structurally incompatible with Western equal temperament.\n\nWhich choice completes the text with the most logical transition?",
+      "choiceA": "Regardless",
+      "choiceB": "For instance",
+      "choiceC": "Specifically",
+      "choiceD": "Similarly",
+      "correctChoice": "A",
+      "explanation": "Правильный ответ — A. В тексте показана дискуссия: 1) Доктор Коул считает стиль независимым; 2) Критики указывают на торговые пути и контакты с Византией; 3) Новые акустические данные показывают уникальный микротональный строй, несовместимый с западным. Новые данные подтверждают независимость ВОПРЕКИ аргументу критиков о торговых путях. Слово «Regardless» (тем не менее / невзирая на это) возвращает логику к поддержке позиции Коула вопреки возражениям. «For instance» и «Specifically» не подходят, так как новые исследования — не пример критики, а контраргумент к ней.",
+      "difficulty": "HARD"
+    }
+  ]
+}

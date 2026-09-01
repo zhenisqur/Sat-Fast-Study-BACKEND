@@ -1,0 +1,58 @@
+{
+  "domain": "problem_solving_and_data_analysis",
+  "domainLevel": 4,
+  "topic": "Tables & graphs",
+  "sequenceLevel": 21,
+  "scenarios": [
+    {
+      "order": 1,
+      "title": "Интерпретация двумерных таблиц (Two-Way Tables)",
+      "content": "Двумерная таблица (two-way table) отображает распределение данных по двум категориальным переменным. Для корректного анализа важно различать абсолютную частоту (число объектов) и относительную частоту (долю от общего числа или от конкретной строки/столбца). При вычислении условных вероятностей или пропорций обратите внимание на категорию, выступающую в роли знаменателя ('из тех, кто...', 'среди всех...')."
+    },
+    {
+      "order": 2,
+      "title": "Графики, линейные тренды и линия наилучшего соответствия",
+      "content": "На Digital SAT часто встречаются диаграммы рассеяния (scatterplots) с линией наилучшего соответствия (line of best fit). Линия показывает общую тенденцию данных и позволяет делать прогнозирование (экстраполяцию и интерполяцию). Запомните, что точки, отклоняющиеся от линии, представляют реальные данные, а сама линия — математическую модель. Отклонение точки по оси Y указывает на разность между фактическим и предсказанным значением."
+    },
+    {
+      "order": 3,
+      "title": "Комбинирование данных и вычисление сводных показателей",
+      "content": "Сложные задачи требуют объединения информации из таблиц и диаграмм для расчета средневзвешенных величин, медиан, диапазонов и процентилей. При анализе столбиковых диаграмм или гистограмм медиана определяется путем систематического подсчета общего количества элементов и поиска значения, находящегося в середине упорядоченного ряда."
+    }
+  ],
+  "quiz": [
+    {
+      "orderInLevel": 1,
+      "stem": "The table below shows the distribution of preferred transportation methods for 200 commuters:\n\nBus: 80\nTrain: 50\nCar: 40\nBicycle: 30\n\nWhat fraction of the surveyed commuters prefer traveling by Bus or Train?",
+      "choiceA": "13/20",
+      "choiceB": "8/20",
+      "choiceC": "5/20",
+      "choiceD": "13/10",
+      "correctChoice": "A",
+      "explanation": "Сложим количество людей, выбирающих автобус и поезд: 80 + 50 = 130. Разделим на общее количество опрошенных (200): 130 / 200 = 13 / 20. Правильный ответ — A.",
+      "difficulty": "EASY"
+    },
+    {
+      "orderInLevel": 2,
+      "stem": "The table below summarizes the preferences of 120 high school students regarding summer activities:\n\nFreshmen — Sports: 28, Arts: 32 (Total: 60)\nSophomores — Sports: 36, Arts: 24 (Total: 60)\nTotal — Sports: 64, Arts: 56 (Total: 120)\n\nIf a student who prefers Arts is selected at random, what is the probability that the student is a Freshman?",
+      "choiceA": "4/7",
+      "choiceB": "8/15",
+      "choiceC": "4/15",
+      "choiceD": "7/15",
+      "correctChoice": "A",
+      "explanation": "По условию выборка ограничена студентами, предпочитающими Arts (Arts Total = 56). Среди них количество Freshmen составляет 32. Следовательно, искомая условная вероятность равна 32 / 56 = 4 / 7. Правильный ответ — A.",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "orderInLevel": 3,
+      "stem": "A line of best fit for a scatterplot showing the relationship between study hours (x) and exam score (y) is given by the equation y = 4.5x + 52. For a student who studied for 6 hours, the actual exam score was 83. What is the difference between the actual score and the score predicted by the line of best fit?",
+      "choiceA": "4",
+      "choiceB": "3",
+      "choiceC": "79",
+      "choiceD": "-4",
+      "correctChoice": "A",
+      "explanation": "Найдем предсказанный балл по уравнению линии наилучшего соответствия при x = 6: y = 4.5(6) + 52 = 27 + 52 = 79. Фактический балл равен 83. Разница между фактическим и предсказанным баллом составляет 83 - 79 = 4. Правильный ответ — A.",
+      "difficulty": "HARD"
+    }
+  ]
+}

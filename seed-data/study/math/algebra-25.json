@@ -1,0 +1,58 @@
+{
+  "domain": "geometry_and_trigonometry",
+  "domainLevel": 1,
+  "topic": "Lines & angles",
+  "sequenceLevel": 25,
+  "scenarios": [
+    {
+      "order": 1,
+      "title": "Свойства параллельных прямых и секущей",
+      "content": "При пересечении двух параллельных прямых секущей образуются пары равных углов: накрест лежащие (alternate interior/exterior), соответственные (corresponding) и вертикальные (vertical). Односторонние углы (consecutive interior) в сумме дают 180°. Понимание этих свойств позволяет быстро находить неизвестные углы при параллельных прямых без сложных вычислений."
+    },
+    {
+      "order": 2,
+      "title": "Смежные, вертикальные углы и перпендикуляры",
+      "content": "Смежные углы (supplementary angles) лежат на одной прямой и дают в сумме 180°. Вертикальные углы (vertical angles) образуются при пересечении двух прямых и всегда равны друг другу. Пересечение перпендикулярных прямых образует четыре прямых угла по 90°, а биссектриса делит любой угол на две равные части."
+    },
+    {
+      "order": 3,
+      "title": "Углы в треугольниках и свойства внешнего угла",
+      "content": "Сумма внутренних углов любого треугольника всегда равна 180°. Внешний угол треугольника (exterior angle) равен сумме двух внутренних углов, не смежных с ним. На Digital SAT использование свойства внешнего угла позволяет исключить промежуточные шаги вычислений и найти неизвестную величину в один шаг."
+    }
+  ],
+  "quiz": [
+    {
+      "orderInLevel": 1,
+      "stem": "In the xy-plane, line L1 is parallel to line L2. If a transversal intersects L1 and L2 such that one of the interior angles is 65°, what is the measure, in degrees, of a consecutive interior angle on the same side of the transversal?",
+      "choiceA": "115°",
+      "choiceB": "65°",
+      "choiceC": "25°",
+      "choiceD": "180°",
+      "correctChoice": "A",
+      "explanation": "Односторонние углы при параллельных прямых и секущей в сумме составляют 180°. Вычислим величину неизвестного угла: 180° - 65° = 115°. Правильный ответ — A.",
+      "difficulty": "EASY"
+    },
+    {
+      "orderInLevel": 2,
+      "stem": "Two lines intersect at a point, forming four angles. If one of the angles is represented by (3x - 10)° and its vertical angle is represented by (2x + 15)°, what is the measure, in degrees, of an angle supplementary to these?",
+      "choiceA": "115°",
+      "choiceB": "65°",
+      "choiceC": "25°",
+      "choiceD": "75°",
+      "correctChoice": "A",
+      "explanation": "Вертикальные углы равны между собой: 3x - 10 = 2x + 15 => x = 25. Подставим x = 25 для нахождения величины угла: 3(25) - 10 = 65°. Смежный (supplementary) угол составляет в сумме с ним 180°, следовательно, его мера равна 180° - 65° = 115°. Правильный ответ — A.",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "orderInLevel": 3,
+      "stem": "In triangle ABC, the measure of angle A is (2x + 10)°, the measure of angle B is (3x - 5)°, and the exterior angle at vertex C measures 130°. What is the measure of angle C, in degrees?",
+      "choiceA": "50°",
+      "choiceB": "25°",
+      "choiceC": "60°",
+      "choiceD": "130°",
+      "correctChoice": "A",
+      "explanation": "Внешний угол треугольника равен сумме двух внутренних углов, не смежных с ним: (2x + 10) + (3x - 5) = 130 => 5x + 5 = 130 => 5x = 125 => x = 25. Внутренний угол C и внешний угол при вершине C образуют смежную пару (в сумме 180°). Следовательно, мера угла C равна 180° - 130° = 50°. Правильный ответ — A.",
+      "difficulty": "HARD"
+    }
+  ]
+}

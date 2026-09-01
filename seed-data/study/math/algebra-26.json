@@ -1,0 +1,58 @@
+{
+  "domain": "geometry_and_trigonometry",
+  "domainLevel": 2,
+  "topic": "Triangles",
+  "sequenceLevel": 26,
+  "scenarios": [
+    {
+      "order": 1,
+      "title": "Признаки подобия и равенства треугольников",
+      "content": "Треугольники подобны (similar), если их соответствующие углы равны, а соответствующие стороны пропорциональны (признаки AA, SAS, SSS). Коэффициент подобия k равен отношению соответствующих сторон. Отношение периметров подобных треугольников равно k, а отношение их площадей равно k². Равенство треугольников (congruence) — это частный случай подобия, где k = 1."
+    },
+    {
+      "order": 2,
+      "title": "Свойства равнобедренных и равносторонних треугольников",
+      "content": "В равнобедренном треугольнике (isosceles triangle) углы при основании равны, а высота, проведенная к основанию, совпадает с медианой и биссектрисой. В равностороннем треугольнике (equilateral triangle) все стороны равны, а каждый внутренний угол равен 60°. Высота равностороннего треугольника со стороной a вычисляется по формуле h = (a√3) / 2."
+    },
+    {
+      "order": 3,
+      "title": "Неравенство треугольника и соотношения между сторонами и углами",
+      "content": "Согласно теореме о неравенстве треугольника (Triangle Inequality Theorem), длина любой стороны треугольника должна быть строго меньше суммы длин двух других сторон и строго больше их абсолютной разности (|a - b| < c < a + b). Кроме того, против большего угла треугольника всегда лежит большая сторона, и наоборот."
+    }
+  ],
+  "quiz": [
+    {
+      "orderInLevel": 1,
+      "stem": "Triangle ABC is similar to triangle DEF, where vertex A corresponds to D, B to E, and C to F. If AB = 6, BC = 8, and DE = 15, what is the length of segment EF?",
+      "choiceA": "20",
+      "choiceB": "18",
+      "choiceC": "24",
+      "choiceD": "16",
+      "correctChoice": "A",
+      "explanation": "Так как треугольники ABC и DEF подобны, отношения соответственных сторон равны: AB / DE = BC / EF. Подставим известные значения: 6 / 15 = 8 / EF. Решим пропорцию: 6 * EF = 120 => EF = 20. Правильный ответ — A.",
+      "difficulty": "EASY"
+    },
+    {
+      "orderInLevel": 2,
+      "stem": "In triangle ABC, AB = AC and the measure of angle A is 50°. Segment AD is an altitude drawn from vertex A to side BC. What is the measure, in degrees, of angle BAD?",
+      "choiceA": "25°",
+      "choiceB": "50°",
+      "choiceC": "65°",
+      "choiceD": "130°",
+      "correctChoice": "A",
+      "explanation": "Поскольку треугольник ABC является равнобедренным с основанием BC, высота AD, проведенная к основанию, также является биссектрисой угла A. Следовательно, мера угла BAD равна половине угла A: 50° / 2 = 25°. Правильный ответ — A.",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "orderInLevel": 3,
+      "stem": "A triangle has side lengths of x, 2x + 1, and 12. If x is an integer, what is the minimum possible value of x?",
+      "choiceA": "4",
+      "choiceB": "3",
+      "choiceC": "5",
+      "choiceD": "2",
+      "correctChoice": "A",
+      "explanation": "По теореме о неравенстве треугольника, сумма двух меньших сторон должна быть больше третьей стороны: x + (2x + 1) > 12 => 3x + 1 > 12 => 3x > 11 => x > 3.66. Наименьшее целое число x, удовлетворяющее этому условию, равно 4. Проверим стороны при x = 4: 4, 9, 12 (неравенство выполняется: 4 + 9 = 13 > 12). Правильный ответ — A.",
+      "difficulty": "HARD"
+    }
+  ]
+}

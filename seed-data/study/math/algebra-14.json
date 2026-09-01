@@ -1,0 +1,58 @@
+{
+"domain": "advanced_math",
+"domainLevel": 6,
+"topic": "Nonlinear functions",
+"sequenceLevel": 14,
+"scenarios": [
+{
+"order": 1,
+"title": "Интерпретация параметров экспоненциальной функции f(x) = a * b^x",
+"content": "В нелинейных функциях вида f(x) = a * b^x параметр a представляет собой начальное значение (y-пересечение, при x = 0), а b является базовым множителем роста или спада (growth/decay factor). Если множитель b больше 1, то функция описывает экспоненциальный рост со ставкой r = b - 1. Если b находится в диапазоне от 0 до 1, то функция выражает экспоненциальный спад со ставкой r = 1 - b. Например, если f(t) = 500 * (1.06)^t, то начальное количество равно 500, и оно возрастает на 6% за каждый период t."
+},
+{
+"order": 2,
+"title": "Сдвиги и преобразования графиков нелинейных функций",
+"content": "Для базовой нелинейной функции f(x) её преобразование g(x) = f(x - h) + k определяет сдвиг графика на координатной плоскости. Добавление или вычитание числа k снаружи аргумента перемещает график вертикально вверх (при k > 0) или вниз (при k < 0), что также сдвигает горизонтальную асимптоту экспоненциальной функции в y = k. Изменение аргумента на (x - h) сдвигает график горизонтально вправо на h единиц (если h > 0) или влево (если h < 0)."
+},
+{
+"order": 3,
+"title": "Расчет средней скорости изменения на интервале",
+"content": "В отличие от линейных функций, скорость изменения нелинейной функции не является постоянной. Чтобы найти среднюю скорость изменения (average rate of change) функции f(x) на интервале от x = a до x = b, используйте формулу наклона секущей: (f(b) - f(a)) / (b - a). Вычислите значение функции в крайней правой точке b, затем значение в крайней левой точке a, вычтите f(a) из f(b) и разделите полученную разность на длину интервала (b - a)."
+}
+],
+"quiz": [
+{
+"orderInLevel": 1,
+"stem": "The function f(t) = 2,500 * (0.82)^t models the estimated value, in dollars, of a piece of equipment t years after it was purchased. Which of the following statements is the best interpretation of the value 0.82 in this context?",
+"choiceA": "The estimated value of the equipment decreases by $82 each year.",
+"choiceB": "The estimated value of the equipment decreases by 18% each year.",
+"choiceC": "The estimated value of the equipment decreases by 82% each year.",
+"choiceD": "The initial value of the equipment was $820.",
+"correctChoice": "B",
+"explanation": "Множитель b = 0.82 в экспоненциальной функции f(t) = a * b^t показывает, что каждый год стоимость оборудования составляет 82% от стоимости предыдущего года. Это эквивалентно ежегодному снижению стоимости на 100% - 82% = 18%. Правильный ответ — B.",
+"difficulty": "EASY"
+},
+{
+"orderInLevel": 2,
+"stem": "The exponential function f is defined by f(x) = 3 * 2^x + 5. If the function g is defined by g(x) = f(x + 2) - 1, what is the value of g(2)?",
+"choiceA": "16",
+"choiceB": "28",
+"choiceC": "52",
+"choiceD": "57",
+"correctChoice": "C",
+"explanation": "Сначала выразим g(2) через функцию f: g(2) = f(2 + 2) - 1 = f(4) - 1. Найдем значение f(4), подставив x = 4 в формулу функции f: f(4) = 3 * 2^4 + 5 = 3 * 16 + 5 = 48 + 5 = 53. Теперь вычислим g(2): g(2) = 53 - 1 = 52. Правильный ответ — C.",
+"difficulty": "MEDIUM"
+},
+{
+"orderInLevel": 3,
+"stem": "The non-linear function f is defined by f(x) = k * 3^x + c, where k and c are constants. The graph of y = f(x) passes through the points (1, 11) and (3, 83). What is the average rate of change of f(x) over the interval 0 <= x <= 2?",
+"choiceA": "12",
+"choiceB": "24",
+"choiceC": "36",
+"choiceD": "48",
+"correctChoice": "A",
+"explanation": "Подставим координаты точек (1, 11) и (3, 83) в уравнение f(x): 3k + c = 11 и 27k + c = 83. Вычтем первое уравнение из второго: 24k = 72, откуда k = 3. Подставим k = 3 в первое уравнение: 3(3) + c = 11 => 9 + c = 11 => c = 2. Таким образом, f(x) = 3 * 3^x + 2. Вычислим значения f(0) и f(2): f(0) = 3 * 3^0 + 2 = 3(1) + 2 = 5, f(2) = 3 * 3^2 + 2 = 3(9) + 2 = 29. Средняя скорость изменения на отрезке [0, 2] равна (f(2) - f(0)) / (2 - 0) = (29 - 5) / 2 = 24 / 2 = 12. Правильный ответ — A.",
+"difficulty": "HARD"
+}
+]
+}

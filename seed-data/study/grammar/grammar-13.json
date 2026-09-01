@@ -1,0 +1,59 @@
+{
+  "section": "READING_WRITING",
+  "domain": "standard_english_conventions",
+  "domainLevel": 1,
+  "topic": "Boundaries",
+  "sequenceLevel": 13,
+  "scenarios": [
+    {
+      "order": 1,
+      "title": "Основы пунктуационного разделения предложений (Sentence Boundaries)",
+      "content": "Субдомен Boundaries проверяет умение правильно разделять самостоятельные предложения (independent clauses) и отличать их от зависимых придаточных конструкций. Самостоятельное предложение содержит и подлежащее, и сказуемое, образуя законченную мысль. Две независимые грамматические основы не могут соединяться просто запятой (ошибка Comma Splice) или вовсе без знаков препинания (ошибка Run-on)."
+    },
+    {
+      "order": 2,
+      "title": "Способы объединения и разделения независимых предложений",
+      "content": "Для разделения двух самостоятельных предложений используются: 1) Точка (.), 2) Точка с запятой (;), 3) Двоеточие (:), если второе предложение поясняет или раскрывает первое, 4) Сочинительный союз с запятой (+, FANBOYS: for, and, nor, but, or, yet, so). Запятая без союза между двумя независимыми предложениями является грамматической ошибкой."
+    },
+    {
+      "order": 3,
+      "title": "Работа с вводными словами и придаточными предложениями",
+      "content": "Слова вроде however, furthermore, therefore, consequently являются вводными наречиями (conjunctive adverbs), а не сочинительными союзами. Когда они стоят между двумя независимыми предложениями, перед ними обязательна точка с запятой или точка, а после них — запятая (например: '; however,')."
+    }
+  ],
+  "quiz": [
+    {
+      "orderInLevel": 1,
+      "stem": "The Great Barrier Reef is home to thousands of marine ______ its fragile ecosystem is increasingly threatened by rising ocean temperatures and coral bleaching.\n\nWhich choice completes the text so that it conforms to the conventions of Standard English?",
+      "choiceA": "species, but",
+      "choiceB": "species but",
+      "choiceC": "species, and",
+      "choiceD": "species",
+      "correctChoice": "A",
+      "explanation": "Правильный ответ — A. В тексте представлены два самостоятельных предложения («The Great Barrier Reef is home...» и «its fragile ecosystem is increasingly...»). Для их грамматически корректного объединения требуется сочинительный союз с запятой перед ним (, but). Вариант B упускает необходимую запятую перед союзом 'but', вариант C использует союз 'and', который логически не выражает противопоставление, а D создает ошибку Run-on.",
+      "difficulty": "EASY"
+    },
+    {
+      "orderInLevel": 2,
+      "stem": "In 1912, the German geophysicist Alfred Wegener proposed the theory of continental ______ he suggested that all Earth's landmasses were once joined in a single supercontinent called Pangaea.\n\nWhich choice completes the text so that it conforms to the conventions of Standard English?",
+      "choiceA": "drift, however,",
+      "choiceB": "drift; specifically,",
+      "choiceC": "drift, specifically",
+      "choiceD": "drift specifically",
+      "correctChoice": "B",
+      "explanation": "Правильный ответ — B. Вторая часть предложения («he suggested that...») является самостоятельной грамматической основой, уточняющей содержание теории Вегенера. Для разделения двух независимых предложений с помощью вводного слова ('specifically') необходимо использовать точку с запятой перед ним и запятую после: '; specifically,'. Вариант A ошибочен по смыслу ('however' создает ложный контраст), C создает ошибку Comma Splice, а D — ошибку Run-on.",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "orderInLevel": 3,
+      "stem": "Recent archaeological excavations in Eastern Jordan uncovered the remains of 14,000-year-old flatbreads burnt in a stone ______ predating the advent of agriculture by at least 4,000 years.\n\nWhich choice completes the text so that it conforms to the conventions of Standard English?",
+      "choiceA": "fireplace; findings that show bread making,",
+      "choiceB": "fireplace, findings that show bread making",
+      "choiceC": "fireplace—findings that show bread making was",
+      "choiceD": "fireplace, these findings show bread making was",
+      "correctChoice": "C",
+      "explanation": "Правильный ответ — C. Конструкция после тире «findings that show...» является приложением/уточняющей фразой (noun phrase modifier), раскрывающей значение находки. Использование длинного тире (em dash) корректно присоединяет эту независимую неполную фразу к главному предложению. Вариант A ошибочен, так как точка с запятой требует законченного предложения после себя; B упускает глагол-сказуемое 'was' для придаточного предложения; D создает ошибку Comma Splice, объединяя две независимые основы («excavations uncovered...» и «these findings show...») просто запятой.",
+      "difficulty": "HARD"
+    }
+  ]
+}

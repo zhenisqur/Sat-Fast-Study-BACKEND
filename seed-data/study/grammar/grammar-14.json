@@ -1,0 +1,59 @@
+{
+  "section": "READING_WRITING",
+  "domain": "standard_english_conventions",
+  "domainLevel": 2,
+  "topic": "Form, Structure, and Sense",
+  "sequenceLevel": 14,
+  "scenarios": [
+    {
+      "order": 1,
+      "title": "Согласование подлежащего и сказуемого (Subject-Verb Agreement)",
+      "content": "В субдомене Form, Structure, and Sense проверяется умение правильно подбирать формы глаголов, местоимений и модификаторов. Одна из самых распространенных тем — согласование подлежащего и сказуемого. Главное правило: определите реальное подлежащее и проигнорируйте любые предложные группы (prepositional phrases) или уточняющие обороты, находящиеся между подлежащим и глаголом."
+    },
+    {
+      "order": 2,
+      "title": "Временное согласование и аспекты глаголов (Verb Tense & Aspect)",
+      "content": "Времена глаголов в предложении и фрагменте текста должны быть логически последовательны. Если контекст описывает завершенное историческое действие или последовательность прошедших событий, используйте Simple Past или Past Perfect. Для научных фактов и постоянных закономерностей используйте Simple Present. Всегда ищите временные маркеры в окружающих предложениях."
+    },
+    {
+      "order": 3,
+      "title": "Согласование местоимений и существительных (Pronoun-Antecedent Agreement)",
+      "content": "Местоимение должно строго соответствовать антецеденту (существительному, которое оно заменяет) в числе и роде. Неодушевленные существительные в единственном числе требуют 'it' / 'its', а во множественном — 'they' / 'their'. Избегайте вариантов с размытыми или отсутствующими антецедентами."
+    }
+  ],
+  "quiz": [
+    {
+      "orderInLevel": 1,
+      "stem": "The analysis of ancient DNA samples extracted from prehistoric human remains ______ key insights into the migration patterns of early European populations.\n\nWhich choice completes the text so that it conforms to the conventions of Standard English?",
+      "choiceA": "provide",
+      "choiceB": "provides",
+      "choiceC": "have provided",
+      "choiceD": "are providing",
+      "correctChoice": "B",
+      "explanation": "Правильный ответ — B. Грамматическое подлежащее предложения — «The analysis» (единственное число). Предложная группа «of ancient DNA samples extracted from prehistoric human remains» не влияет на число глагола. Для подлежащего в единственном числе требуется глагол «provides». Варианты A, C и D используют формы множественного числа (provide, have provided, are providing).",
+      "difficulty": "EASY"
+    },
+    {
+      "orderInLevel": 2,
+      "stem": "By the time the James Webb Space Telescope reached its observational orbit at the second Lagrange point in early 2022, astronomers around the world ______ its initial deep-field images for months.\n\nWhich choice completes the text so that it conforms to the conventions of Standard English?",
+      "choiceA": "have been awaiting",
+      "choiceB": "await",
+      "choiceC": "had been awaiting",
+      "choiceD": "will await",
+      "correctChoice": "C",
+      "explanation": "Правильный ответ — C. Конструкция «By the time... reached...» указывает на действие, которое длилось и завершилось к определенному моменту в прошлом. Для описания действия, предшествовавшего другому событию в прошлом, требуется прошедшее совершенное длительное время (Past Perfect Continuous) — «had been awaiting». Вариант A использует Present Perfect, B — Present Simple, D — Future Simple.",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "orderInLevel": 3,
+      "stem": "Each of the high-precision seismometers deployed along the fault zone ______ continuous subterranean data, allowing geophysicists to detect micro-tremors before major seismic events occur.\n\nWhich choice completes the text so that it conforms to the conventions of Standard English?",
+      "choiceA": "transmits",
+      "choiceB": "transmit",
+      "choiceC": "have transmitted",
+      "choiceD": "are transmitting",
+      "correctChoice": "A",
+      "explanation": "Правильный ответ — A. Местоимение «Each» всегда является подлежащим в единственном числе, несмотря на следующую за ним предложную группу во множественном числе («of the high-precision seismometers»). Следовательно, сказуемое должно быть в форме единственного числа настоящего времени — «transmits». Варианты B, C и D глаголы стоят во множественном числе (transmit, have transmitted, are transmitting).",
+      "difficulty": "HARD"
+    }
+  ]
+}

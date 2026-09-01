@@ -1,0 +1,59 @@
+{
+"section": "READING_WRITING",
+"domain": "information_and_ideas",
+"domainLevel": 2,
+"topic": "Command of Evidence (Textual)",
+"sequenceLevel": 2,
+"scenarios": [
+{
+"order": 1,
+"title": "Идентификация проверяемой гипотезы или утверждения",
+"content": "Задания Command of Evidence (Textual) всегда содержат конкретную гипотезу, заявленную исследователями или автором текста. Прежде чем читать варианты ответов, четко сформулируйте для себя, ЧТО ИМЕННО утверждает автор (например, «фактор X увеличивает фактор Y»). Искомый вариант ответа должен быть прямым фактическим доказательством именно этой конкретной взаимосвязи."
+},
+{
+"order": 2,
+"title": "Проверка прямой релевантности и логической связи",
+"content": "Главная ловушка в этом типе заданий — варианты ответов, которые содержат правдоподобные и интересные факты по теме пассажа, но логически не подтверждают сформулированную гипотезу. Оценивайте каждый вариант ответа через вопрос: «Если это утверждение верно, доказывает ли оно напрямую гипотезу исследователей?»."
+},
+{
+"order": 3,
+"title": "Отличие подкрепления гипотезы от ее опровержения",
+"content": "Внимательно следите за направлением логической связи. Вариант ответа, демонстрирующий обратный или нейтральный эффект, является дистрактором. Если гипотеза утверждает, что адаптация защищает вид от хищников, то правильное текстовое доказательство должно показать снижение смертности от хищников именно у особей с этой адаптацией."
+}
+],
+"quiz": [
+{
+"orderInLevel": 1,
+"stem": "An ornithologist hypotheses that urban noise pollution causes songbirds to sing at higher pitches so their calls are not drowned out by low-frequency traffic sound. To test this hypothesis, the researcher recorded bird songs across several city parks with varying ambient noise levels.\n\nWhich finding, if true, would most directly support the ornithologist's hypothesis?",
+"choiceA": "Songbirds in parks with high traffic noise produce vocalizations with a significantly higher minimum frequency than birds of the same species in quieter parks.",
+"choiceB": "Songbirds in quieter rural areas lay more eggs per nesting season than songbirds living in noisy urban environments.",
+"choiceC": "Urban songbirds sing for longer durations during early morning hours when traffic volume is lowest.",
+"choiceD": "Traffic noise levels in city parks remain relatively constant throughout the entire spring breeding season.",
+"correctChoice": "A",
+"explanation": "Правильный ответ — A. Гипотеза орнитолога заключается в том, что городской шум заставляет птиц петь на более высоких частотах (higher pitch). Вариант A напрямую подтверждает это, показывая, что птицы в шумных парках издают звуки с более высокой минимальной частотой. Варианты B, C и D описывают другие аспекты (размножение, время пения, уровень шума), но не подтверждают связь между уровнем шума и высотой тона песни.",
+"difficulty": "EASY"
+},
+{
+"orderInLevel": 2,
+"stem": "Sociologist Dr. Maya Lin suggests that community gardens do not merely produce food, but actively strengthen social cohesion among urban residents. She claims that participating in neighborhood gardening projects leads to increased civic engagement, such as attending local community council meetings.\n\nWhich finding from Dr. Lin's study, if true, would most directly support her claim?",
+"choiceA": "Neighborhoods with community gardens harvest a higher volume of organic vegetables per household than neighborhoods without such gardens.",
+"choiceB": "Residents who regularly volunteer at community gardens are significantly more likely to join neighborhood planning committees than residents who do not garden.",
+"choiceC": "City planners allocate more funding to urban parks that feature flower displays than to those designated for vegetable growing.",
+"choiceD": "Community garden participants report spending fewer hours watching television during summer months than non-participants.",
+"correctChoice": "B",
+"explanation": "Правильный ответ — B. Утверждение доктора Лин заключается в том, что участие в общественных садах повышает гражданскую активность (civic engagement). Вариант B связывает волонтерство в саду с участием в градостроительных комитетах, что прямо подкрепляет ее тезис. Вариант A касается объема урожая, C — финансирования парков, D — просмотра телевизора; ни один из них не подтверждает роста гражданской активности.",
+"difficulty": "MEDIUM"
+},
+{
+"orderInLevel": 3,
+"stem": "Archaeologist Dr. Aris Thorne argues that the ancient settlement of Oakhaven maintained long-distance trade networks extending hundreds of kilometers, rather than relying solely on localized regional barter. Dr. Thorne points to material culture items excavated from 3rd-century BCE residential sites at Oakhaven to substantiate this argument.\n\nWhich finding from the excavation, if true, would most directly support Dr. Thorne's argument?",
+"choiceA": "Pottery vessels made from locally sourced clay contained residue of grains grown in fields adjacent to Oakhaven.",
+"choiceB": "Tools made from obsidian, a volcanic glass whose chemical footprint matches quarries located 500 kilometers away, were found in multiple households.",
+"choiceC": "Bronze artifacts crafted in Oakhaven exhibited artistic motifs similar to those found in neighboring villages within a 10-kilometer radius.",
+"choiceD": "Excavators unearthed stone storage bins containing animal bones from domestic livestock commonly raised across the region.",
+"correctChoice": "B",
+"explanation": "Правильный ответ — B. Аргумент доктора Торна состоит в том, что Оукхейвен вел дальнюю торговлю (сотня километров). Вариант B предоставляет прямое доказательство: изделия из обсидиана, химический состав которого соответствует карьерам в 500 км от поселения. Варианты A, C и D описывают локальные ресурсы (глина у дома, соседи в радиусе 10 км, местный скот), что подтверждает только местное производство, а не дальнюю торговлю.",
+"difficulty": "HARD"
+}
+]
+}

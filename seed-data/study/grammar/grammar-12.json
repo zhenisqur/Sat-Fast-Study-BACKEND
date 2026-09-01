@@ -1,0 +1,59 @@
+{
+  "section": "READING_WRITING",
+  "domain": "expression_of_ideas",
+  "domainLevel": 3,
+  "topic": "Mixed Expression of Ideas",
+  "sequenceLevel": 12,
+  "scenarios": [
+    {
+      "order": 1,
+      "title": "Интеграция риторического синтеза и логических переходов",
+      "content": "На высшем уровне домена Expression of Ideas требуется мгновенно переключаться между структурированием заметок (Rhetorical Synthesis) и подбором логических связок (Transitions). Анализируйте коммуникативную цель задания: нужно ли выразить контраст, причину, иллюстрацию или объединить специфические факты из заметок под заданный риторический запрос."
+    },
+    {
+      "order": 2,
+      "title": "Анализ смысловых сдвигов и избегание редких дистракторов",
+      "content": "В сложных заданиях на Transitions вводные слова могут выражать неявный контраст (regardless, nevertheless) или неожиданную уступку. В заданиях Rhetorical Synthesis дистракторы часто объединяют верные факты из заметок, но нарушают хотя бы одно из условий вопроса (например, забывают упомянуть определенный метод или аудиторию)."
+    },
+    {
+      "order": 3,
+      "title": "Стратегия быстрой фильтрации по ключевым ограничениям",
+      "content": "Всегда выделяйте точные критерии в формулировке вопроса. Для перехода — определите смысловую связь между предложениями без ввода варианта. Для синтеза — выделите 2-3 ключевых слова из цели (например, «contrast», «method», «emphasize result») и проверяйте каждый вариант на строгое соответствие ВСЕМ критериям."
+    }
+  ],
+  "quiz": [
+    {
+      "orderInLevel": 1,
+      "stem": "While preparing a report on agricultural technology, a student took the following notes:\n- Drip irrigation systems deliver water directly to plant roots through networks of tubes.\n- Traditional flood irrigation distributes water across entire field surfaces, resulting in high evaporation rates.\n- Drip systems cut water usage by up to 50% compared to traditional flood irrigation.\n- Farmers in arid regions are increasingly adopting drip technology to conserve depleted groundwater reserves.\n\nThe student wants to emphasize an advantage of drip irrigation over traditional flood irrigation.\nWhich choice best uses relevant information from the notes to accomplish this goal?",
+      "choiceA": "Drip irrigation systems deliver water through tubes, which farmers in arid regions use to conserve groundwater.",
+      "choiceB": "Unlike traditional flood irrigation, which loses significant water to evaporation, drip irrigation reduces water usage by up to 50% by delivering water directly to plant roots.",
+      "choiceC": "Traditional flood irrigation distributes water across entire field surfaces, whereas drip irrigation is adopted primarily in arid regions.",
+      "choiceD": "Both drip irrigation and traditional flood irrigation are used by farmers to manage water supplies for agricultural crops.",
+      "correctChoice": "B",
+      "explanation": "Правильный ответ — B. Цель задания — подчеркнуть ПРЕИМУЩЕСТВО (emphasize an advantage) капельного орошения перед традиционным. Вариант B прямо сопоставляет два метода, указывая на снижение потерь от испарения и сокращение расхода воды на 50%. Варианты A, C и D не отражают четкого преимущества по эффективности расхода воды.",
+      "difficulty": "EASY"
+    },
+    {
+      "orderInLevel": 2,
+      "stem": "For decades, neuroscientists assumed that adult mammalian brains were incapable of generating new neurons, believing that neurogenesis ceased after early development. In 1998, researcher Fred Gage and his team published ground-breaking evidence demonstrating that the human hippocampus continues to produce functional neurons throughout adulthood. ______, this discovery overturned a fundamental dogma in neuroscience and opened new avenues for treating neurodegenerative diseases.\n\nWhich choice completes the text with the most logical transition?",
+      "choiceA": "Ultimately",
+      "choiceB": "In contrast",
+      "choiceC": "For instance",
+      "choiceD": "Otherwise",
+      "correctChoice": "A",
+      "explanation": "Правильный ответ — A. Текст описывает старое представление, затем открытие команды Гейджа, и завершает итоговым выводом о том, как это открытие в конечном счете опровергло догму и открыло пути лечения. Слово «Ultimately» (в конечном счете / в итоге) логически подводит этот суммирующий результат. «In contrast» выражает противопоставление, «For instance» — пример, «Otherwise» — «иначе/в противном случае».",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "orderInLevel": 3,
+      "stem": "A student is writing an academic summary about urban climate adaptation and took the following notes:\n- Urban heat island (UHI) effect causes cities to be significantly warmer than surrounding rural areas due to dense dark asphalt and concrete surfaces.\n- Cool roofs utilize highly reflective paints and materials to bounce solar radiation back into the atmosphere.\n- In 2019, New York City implemented a municipal initiative mandating reflective coatings on flat roofs of all newly constructed buildings.\n- Climate researchers measured a localized decrease in rooftop surface temperatures of up to 15°C across treated buildings in New York City.\n\nThe student wants to present the New York City initiative and its specific scientific outcome to an audience of urban planners.\nWhich choice best uses relevant information from the notes to accomplish this goal?",
+      "choiceA": "To combat the urban heat island effect, cities are painting dark asphalt and concrete surfaces with highly reflective coatings.",
+      "choiceB": "Under a 2019 municipal initiative mandating cool reflective roofs on new buildings, New York City achieved a localized decrease in rooftop surface temperatures of up to 15°C.",
+      "choiceC": "Cool roofs use highly reflective materials to reflect solar radiation, thereby reducing surface temperatures more effectively than dark asphalt.",
+      "choiceD": "Although the urban heat island effect causes cities to be warmer than rural areas, New York City mandates reflective coatings on flat roofs of newly constructed buildings.",
+      "correctChoice": "B",
+      "explanation": "Правильный ответ — B. Цель — представить инициативу Нью-Йорка (2019 municipal initiative) и ее конкретный научный результат (decrease in surface temperatures up to 15°C). Вариант B объединяет оба эти обязательных элемента. Вариант A описывает общее решение без результатов, C дает лишь определение cool roofs, D не упоминает научный результат применения метода.",
+      "difficulty": "HARD"
+    }
+  ]
+}

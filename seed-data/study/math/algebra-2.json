@@ -1,0 +1,58 @@
+{
+"domain": "algebra",
+"domainLevel": 2,
+"topic": "Linear equations in context",
+"sequenceLevel": 2,
+"scenarios": [
+{
+"order": 1,
+"title": "Составление линейного уравнения по тексту (y = mx + b)",
+"content": "В текстовых задачах Digital SAT часто требуется составить линейную модель вида y = mx + b. В этой модели b обозначает фиксированное начальное значение (flat fee, initial value), которое уплачивается или существует изначально. Коэффициент m — это переменная ставка или скорость изменения (rate of change, cost per unit), которая умножается на количество x. Ключевые слова 'per', 'each', 'every' указывают на то, что данное число является коэффициентом m при переменной x."
+},
+{
+"order": 2,
+"title": "Интерпретация коэффициентов m и b в контексте",
+"content": "Задачи SAT часто проверяют не умение считать, а понимание смысла чисел в контексте реальной ситуации. Свободный член b показывает значение итоговой величины y, когда переменная x равна 0 (например, стартовый взнос или начальная глубина). Коэффициент наклона m показывает, на сколько единиц изменяется y при увеличении x ровно на 1 единицу. Если m положительно, величина y растет; если m отрицательно, параметр y уменьшается со временем или по мере расхода ресурса."
+},
+{
+"order": 3,
+"title": "Модификация условий и решение целевых уравнений",
+"content": "В усложненных задачах требуется не просто составить уравнение, но и изменить его параметры согласно новому условию задачи или найти значение переменной для достижения определенной цели. Сначала выпишите базовую модель, затем внесите требуемые изменения в процентную ставку, скорость или начальное значение. После этого подставьте заданный целевой результат вместо переменной y и решите линейное уравнение относительно x."
+}
+],
+"quiz": [
+{
+"orderInLevel": 1,
+"stem": "A plumber charges a one-time service fee of $50 plus $45 for each hour of work. Which equation represents the total charge, C, in dollars, for a job that takes h hours?",
+"choiceA": "C = 50h + 45",
+"choiceB": "C = 45h + 50",
+"choiceC": "C = 95h",
+"choiceD": "C = 45h - 50",
+"correctChoice": "B",
+"explanation": "Разовая плата $50 является фиксированным начальным значением (b = 50), а $45 за каждый час — это почасовая ставка (m = 45), умножаемая на количество часов h. Следовательно, итоговая стоимость выражается уравнением C = 45h + 50. Правильный ответ — B.",
+"difficulty": "EASY"
+},
+{
+"orderInLevel": 2,
+"stem": "The height of a young tree, h, in inches, t years after it was planted is given by the equation h = 12 + 4.5t. What is the best interpretation of 4.5 in this context?",
+"choiceA": "The initial height of the tree, in inches, when planted",
+"choiceB": "The total height of the tree, in inches, after 12 years",
+"choiceC": "The estimated increase in the tree's height, in inches, each year",
+"choiceD": "The number of years it takes for the tree to grow by 12 inches",
+"correctChoice": "C",
+"explanation": "В уравнении h = 12 + 4.5t число 12 обозначает начальную высоту дерева при t = 0. Коэффициент 4.5 стоит при переменной времени t (в годах), следовательно, он показывает ежегодную скорость роста дерева в дюймах. Правильный ответ — C.",
+"difficulty": "MEDIUM"
+},
+{
+"orderInLevel": 3,
+"stem": "A scientist models the weight of a substance, W, in grams, after t hours of cooling using the equation W = 800 - 12t. The scientist needs to reach a target weight of 650 grams by increasing the hourly cooling rate by 25%. Under this new rate, how many hours will it take for the substance to reach 650 grams?",
+"choiceA": "8",
+"choiceB": "10",
+"choiceC": "12.5",
+"choiceD": "15",
+"correctChoice": "B",
+"explanation": "Изначальная скорость уменьшения массы составляет 12 грамм в час. Увеличим ее на 25%: 12 * 1.25 = 15 грамм в час. Новая модель принимает вид W = 800 - 15t. Подставим целевую массу W = 650: 650 = 800 - 15t. Перенесем слагаемые: 15t = 800 - 650 = 150. Разделим на 15: t = 10 часов. Правильный ответ — B.",
+"difficulty": "HARD"
+}
+]
+}

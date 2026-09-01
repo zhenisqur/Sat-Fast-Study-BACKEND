@@ -1,0 +1,59 @@
+{
+  "section": "READING_WRITING",
+  "domain": "information_and_ideas",
+  "domainLevel": 4,
+  "topic": "Inferences",
+  "sequenceLevel": 4,
+  "scenarios": [
+    {
+      "order": 1,
+      "title": "Логическое завершение текста на основе контекста",
+      "content": "В заданиях на Inferences требуется определить логически неизбежный вывод, завершающий текст. Внимательно проанализируйте связи между фактами в пассаже. Правильное умозаключение не должно содержать спекуляций: оно напрямую вытекает из приведенных условий и опирается исключительно на представленные данные."
+    },
+    {
+      "order": 2,
+      "title": "Избегание необоснованных экстраполяций и крайних суждений",
+      "content": "Главная ловушка дистракторов в заданиях на Inferences — попытка сделать слишком далекий шаг за пределы пассажа. Если текст описывает конкретное наблюдение в определенных условиях, правильный вывод останется в рамках этих условий, избегая слишком широких обобщений и слов-крайностей (всегда, никогда, абсолютно)."
+    },
+    {
+      "order": 3,
+      "title": "Анализ контрастов и условий с условной логикой",
+      "content": "Часто аргумент строится на противопоставлении или условии (если X, то Y; но при Z происходит W). Чтобы сделать верный логический вывод, найдите точку перелома в тексте (слова *however*, *whereas*, *unanticipated*) и определите, как новое условие меняет ожидаемый результат."
+    }
+  ],
+  "quiz": [
+    {
+      "orderInLevel": 1,
+      "stem": "Botanists studying desert flora noted that certain succulent species open their stomata only at night to absorb carbon dioxide, a process known as Crassulacean Acid Metabolism (CAM). By keeping their stomata closed during the scorching daytime hours, these plants drastically reduce water loss through transpiration compared to non-CAM plants. However, this nocturnal gas exchange requires plants to store carbon dioxide internally as malic acid until daylight enables photosynthesis. Consequently, in environments where nighttime temperatures remain abnormally high, forcing stomata to stay partially closed even at night, CAM plants ______\n\nWhich choice most logically completes the text?",
+      "choiceA": "experience a reduction in their ability to absorb the carbon dioxide necessary for daytime photosynthesis.",
+      "choiceB": "switch entirely to non-CAM photosynthetic pathways during daytime hours to prevent overheating.",
+      "choiceC": "absorb significantly more water through their root systems than they do during typical cooler nights.",
+      "choiceD": "produce higher levels of malic acid than they would under standard temperature conditions.",
+      "correctChoice": "A",
+      "explanation": "Правильный ответ — A. Текст объясняет, что CAM-растения поглощают углекислый газ ночью через устьица для создания запасов яблочной кислоты. Если аномально высокие ночные температуры вынуждают устьица частично закрываться и ночью, растения логически не смогут поглотить привычный объем CO2, что снизит их способность к дневного фотосинтезу. Варианты B, C и D содержат спекуляции, не подтвержденные пассажем.",
+      "difficulty": "EASY"
+    },
+    {
+      "orderInLevel": 2,
+      "stem": "Economists analyzing consumer behavior during inflationary periods observed a distinct shift in purchasing habits regarding store-brand versus name-brand groceries. While name-brand products typically enjoy higher sales during stable economic conditions due to perceived quality advantages, consumers increasingly substitute them with store-brand alternatives as household purchasing power declines. Notably, market data revealed that even after inflation rates stabilized and real wages began to recover, a substantial portion of consumers continued buying store-brand items rather than returning to name brands. This persistence strongly suggests that ______\n\nWhich choice most logically completes the text?",
+      "choiceA": "consumer perceptions of quality differences between name-brand and store-brand products permanently shifted during the inflationary period.",
+      "choiceB": "store-brand products are universally superior in quality to name-brand goods across all retail categories.",
+      "choiceC": "name-brand manufacturers raised their prices at higher rates after inflation stabilized than during the inflationary peak.",
+      "choiceD": "financial stress is the sole factor determining whether consumers purchase store-brand grocery items.",
+      "correctChoice": "A",
+      "explanation": "Правильный ответ — A. Текст показывает, что даже после восстановления реальных доходов покупатели не вернулись к известным брендам, хотя раньше предпочитали их из-за «воспринимаемого качества». Отсюда следует вывод, что восприятие разницы в качестве между брендами и магазинами изменилось во время инфляции. Вариант B использует крайнее слово «universally», C выдвигает гипотезу о действиях производителей, D ошибочно называет финансовый стресс «единственным фактором» (sole factor).",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "orderInLevel": 3,
+      "stem": "Neuroscientists studying memory consolidation conducted an experiment where participants learned a sequence of motor tasks. Group 1 was allowed six hours of uninterrupted slow-wave sleep immediately following the learning phase, while Group 2 was kept awake for eight hours before being allowed identical sleep. When tested 24 hours later, Group 1 demonstrated significantly higher accuracy and speed than Group 2. However, when researchers repeated the experiment with a modified task that relied primarily on emotional memory rather than motor skills, both groups exhibited nearly identical recall accuracy regardless of sleep timing. These contrasting findings most strongly support which inference about memory consolidation?\n\nWhich choice most logically completes the text?",
+      "choiceA": "The timing of sleep relative to learning affects the consolidation of motor skills differently than it affects the consolidation of emotional memories.",
+      "choiceB": "Slow-wave sleep is essential for consolidating emotional memories but plays no measurable role in motor skill retention.",
+      "choiceC": "Sleep deprivation permanently impairs the brain's capacity to acquire any new form of complex information.",
+      "choiceD": "Emotional memory tasks are inherently easier for the brain to consolidate than tasks involving motor skill coordination.",
+      "correctChoice": "A",
+      "explanation": "Правильный ответ — A. Эксперимент показал, что время сна существенно повлияло на моторику (Group 1 обошла Group 2), но при тестировании эмоциональной памяти разницы между группами не было. Это прямо приводит к выводу, что интервал сна влияет на консолидацию моторных навыков иначе, чем на эмоциональную память. Вариант B противоречит результатам эксперимента, C утверждает о «постоянном нарушении» (permanently impairs), а D делает необоснованное обобщение о сложности задач.",
+      "difficulty": "HARD"
+    }
+  ]
+}

@@ -1,0 +1,304 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ---------- ENUMS ----------
+
+enum Role {
+  STUDENT
+  ADMIN
+  CONTENT_EDITOR
+}
+
+enum SatSection {
+  READING_WRITING
+  MATH
+}
+
+enum QuestionDifficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum AttemptStatus {
+  IN_PROGRESS
+  COMPLETED
+  ABANDONED
+}
+
+enum AnswerCorrectness {
+  CORRECT
+  INCORRECT
+  SKIPPED
+}
+
+enum AuthProvider {
+  LOCAL
+  GOOGLE
+  APPLE
+}
+
+model User {
+  id             String       @id @default(cuid())
+  email          String       @unique
+  passwordHash   String?      // nullable — у OAuth-юзеров пароля нет
+  fullName       String
+  role           Role         @default(STUDENT)
+  targetScore    Int?
+  age            Int?
+  hasTakenSat    Boolean?
+  previousScore  Int?
+  authProvider   AuthProvider @default(LOCAL)
+  providerId     String?      // sub от Google/Apple
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  attempts           TestAttempt[]
+  aiLogs             AiInteractionLog[]
+  answerLogs         AnswerLog[]
+  levelProgress      UserLevelProgress[]
+  dailyQuotas        DailyQuota[]
+  mistakeReviewItems MistakeReviewItem[]
+  studyPathProgress  StudyPathProgress[]
+
+  @@unique([authProvider, providerId])
+  @@map("users")
+}
+
+// ---------- FULL TESTS ----------
+
+model Test {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  isAdaptive  Boolean  @default(true)
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  modules  TestModule[]
+  attempts TestAttempt[]
+
+  @@map("tests")
+}
+
+model TestModule {
+  id           String              @id @default(cuid())
+  testId       String
+  section      SatSection
+  order        Int
+  difficulty   QuestionDifficulty?
+  timeLimitSec Int
+
+  test      Test               @relation(fields: [testId], references: [id], onDelete: Cascade)
+  questions QuestionOnModule[]
+
+  @@index([testId])
+  @@map("test_modules")
+}
+
+// ---------- QUESTIONS ----------
+
+model Question {
+  id                 String             @id @default(cuid())
+  section            SatSection
+  level              Int
+  orderInLevel       Int
+  difficulty         QuestionDifficulty
+  stem               String             @db.Text
+  choiceA            String
+  choiceB            String
+  choiceC            String
+  choiceD            String
+  correctChoice      String
+  explanation        String             @db.Text
+  isActive           Boolean            @default(true)
+  createdAt          DateTime           @default(now())
+  domain             String?
+  domainLevel        Int?
+  domainOrderInLevel Int?
+
+  tags               QuestionTag[]
+  modules            QuestionOnModule[]
+  answerLogs         AnswerLog[]
+  aiLogs             AiInteractionLog[]
+  mistakeReviewItems MistakeReviewItem[]
+
+  @@unique([section, level, orderInLevel])
+  @@map("questions")
+}
+
+model Tag {
+  id       String @id @default(cuid())
+  name     String @unique
+  category String
+
+  questions QuestionTag[]
+
+  @@map("tags")
+}
+
+model QuestionTag {
+  questionId String
+  tagId      String
+
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  tag      Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([questionId, tagId])
+  @@map("question_tags")
+}
+
+model QuestionOnModule {
+  testModuleId String
+  questionId   String
+  order        Int
+
+  testModule TestModule @relation(fields: [testModuleId], references: [id], onDelete: Cascade)
+  question   Question   @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@id([testModuleId, questionId])
+  @@map("questions_on_modules")
+}
+
+// ---------- LEVEL PROGRESSION (checkpoint / test mode, 50+50) ----------
+
+model UserLevelProgress {
+  id           String     @id @default(cuid())
+  userId       String
+  section      SatSection
+  currentLevel Int        @default(1)
+  updatedAt    DateTime   @updatedAt
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@unique([userId, section])
+  @@map("user_level_progress")
+}
+
+model DailyQuota {
+  id           String    @id @default(cuid())
+  userId       String
+  date         DateTime  @db.Date
+  mathAnswered Int       @default(0)
+  rwAnswered   Int       @default(0)
+  mathTarget   Int       @default(15)
+  rwTarget     Int       @default(15)
+  completed    Boolean   @default(false)
+  completedAt  DateTime?
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@unique([userId, date])
+  @@map("daily_quotas")
+}
+
+// ---------- DOMAIN PROGRESSION (учебный режим, по темам) ----------
+model StudyPathProgress {
+  id                   String   @id @default(cuid())
+  userId               String   @unique
+  currentSequenceLevel Int      @default(1)
+  mathTabDone          Boolean  @default(false)
+  grammarTabDone       Boolean  @default(false)
+  updatedAt            DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("study_path_progress")
+}
+// ---------- ATTEMPTS ----------
+
+model TestAttempt {
+  id          String        @id @default(cuid())
+  userId      String
+  testId      String
+  status      AttemptStatus @default(IN_PROGRESS)
+  scoreRW     Int?
+  scoreMath   Int?
+  startedAt   DateTime      @default(now())
+  completedAt DateTime?
+
+  user       User        @relation(fields: [userId], references: [id])
+  test       Test        @relation(fields: [testId], references: [id])
+  answerLogs AnswerLog[]
+
+  @@index([userId])
+  @@map("test_attempts")
+}
+
+model AnswerLog {
+  id           String            @id @default(cuid())
+  attemptId    String
+  userId       String
+  questionId   String
+  userAnswer   String
+  correctness  AnswerCorrectness
+  timeSpentSec Int
+  createdAt    DateTime          @default(now())
+
+  attempt  TestAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  user     User        @relation(fields: [userId], references: [id])
+  question Question    @relation(fields: [questionId], references: [id])
+
+  @@index([userId, questionId])
+  @@map("answer_logs")
+}
+
+// ---------- AI PIPELINE ----------
+
+model AiInteractionLog {
+  id                 String   @id @default(cuid())
+  userId             String
+  questionId         String?
+  prompt             String   @db.Text
+  rawResponse        String   @db.Text
+  finalResponse      String   @db.Text
+  modelName          String
+  mathVerified       Boolean  @default(false)
+  verificationPassed Boolean?
+  flaggedForReview   Boolean  @default(false)
+  latencyMs          Int?
+  createdAt          DateTime @default(now())
+
+  user     User      @relation(fields: [userId], references: [id])
+  question Question? @relation(fields: [questionId], references: [id])
+
+  @@index([userId])
+  @@index([flaggedForReview])
+  @@map("ai_interaction_logs")
+}
+
+// ---------- MISTAKE REVIEW ----------
+
+model MistakeReviewItem {
+  id          String    @id @default(cuid())
+  userId      String
+  questionId  String
+  timesWrong  Int       @default(1)
+  resolved    Boolean   @default(false)
+  lastWrongAt DateTime  @default(now())
+  resolvedAt  DateTime?
+
+  user     User     @relation(fields: [userId], references: [id])
+  question Question @relation(fields: [questionId], references: [id])
+
+  @@unique([userId, questionId])
+  @@map("mistake_review_items")
+}
+
+model LessonScenario {
+  id          String   @id @default(cuid())
+  domain      String   // "algebra", "advanced_math" и т.д.
+  domainLevel Int      // 1-8 для algebra, 1-9 для advanced_math и т.д. (свой счётчик внутри домена)
+  order       Int      // 1-7 порядок сценария внутри урока
+  title       String
+  content     String   @db.Text  // сам текст объяснения "как решается"
+  createdAt   DateTime @default(now())
+
+  @@unique([domain, domainLevel, order])
+  @@map("lesson_scenarios")
+}

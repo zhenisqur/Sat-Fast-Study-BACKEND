@@ -1,0 +1,58 @@
+{
+"domain": "problem_solving_and_data_analysis",
+"domainLevel": 1,
+"topic": "Ratios & proportions",
+"sequenceLevel": 18,
+"scenarios": [
+{
+"order": 1,
+"title": "Пропорции и масштабные отношения",
+"content": "Пропорция — это равенство двух отношений вида a/b = c/d. На Digital SAT основные задачи на пропорции решаются перекрестным умножением (cross-multiplication): a * d = b * c. При составлении пропорции критически важно сохранять единый порядок величин в обеих частях равенства (например, 'числитель — количество единиц товара, знаменатель — итоговая стоимость')."
+},
+{
+"order": 2,
+"title": "Отношения частей к частям и частей к целому",
+"content": "Отношение a : b показывает соотношение двух отдельных частей между собой. Чтобы перейти к отношению части к целому, нужно сложить все части: общее количество частей равно a + b. Например, если отношение мальчиков к девочкам в классе составляет 3 : 5, то общая сумма частей равна 3 + 5 = 8, а доля мальчиков от всего класса равна 3/8, а девочек — 5/8."
+},
+{
+"order": 3,
+"title": "Перевод единиц измерения и размерный анализ",
+"content": "Для перевода единиц измерения при помощи пропорций используйте размерный анализ (dimensional analysis). Запишите коэффициент перевода в виде дроби так, чтобы исходные единицы измерения сократились, а нужные остались. Например, при переводе 120 миль в километры (где 1 миля ≈ 1.61 км) умножьте 120 миль на (1.61 км / 1 миля) = 193.2 км."
+}
+],
+"quiz": [
+{
+"orderInLevel": 1,
+"stem": "A printer prints 35 pages in 2 minutes. At this constant rate, how many pages can the printer print in 10 minutes?",
+"choiceA": "175",
+"choiceB": "150",
+"choiceC": "140",
+"choiceD": "70",
+"correctChoice": "A",
+"explanation": "Составим пропорцию: 35 / 2 = x / 10. Применим перекрестное умножение: 2x = 35 * 10 => 2x = 350 => x = 175 страниц. Правильный ответ — A.",
+"difficulty": "EASY"
+},
+{
+"orderInLevel": 2,
+"stem": "In a fruit basket, the ratio of apples to oranges is 3 : 5. If there are 24 apples and oranges in total, how many oranges are in the basket?",
+"choiceA": "15",
+"choiceB": "9",
+"choiceC": "12",
+"choiceD": "18",
+"correctChoice": "A",
+"explanation": "Найдем общее количество частей: 3 + 5 = 8 частей. Вычислим количество фруктов в одной части: 24 / 8 = 3. Так как апельсины составляют 5 частей, их количество равно 5 * 3 = 15. Правильный ответ — A.",
+"difficulty": "MEDIUM"
+},
+{
+"orderInLevel": 3,
+"stem": "A recipe requires 2.5 cups of flour for every 4 servings. A chef needs to prepare enough food for 18 servings. If flour is sold only in 2-cup bags, what is the minimum number of bags of flour the chef must buy?",
+"choiceA": "6",
+"choiceB": "5",
+"choiceC": "12",
+"choiceD": "11",
+"correctChoice": "A",
+"explanation": "Найдем необходимое количество муки с помощью пропорции: x / 18 = 2.5 / 4 => x = (2.5 * 18) / 4 = 45 / 4 = 11.25 стаканов. Так как мука продается пакетами по 2 стакана, разделим 11.25 на 2: 11.25 / 2 = 5.625 пакетов. Повар должен купить целое количество пакетов, поэтому округляем в большую сторону до 6. Правильный ответ — A.",
+"difficulty": "HARD"
+}
+]
+}

@@ -1,0 +1,59 @@
+{
+  "section": "READING_WRITING",
+  "domain": "craft_and_structure",
+  "domainLevel": 4,
+  "topic": "Mixed Craft and Structure",
+  "sequenceLevel": 9,
+  "scenarios": [
+    {
+      "order": 1,
+      "title": "Синтез навыков домена Craft and Structure",
+      "content": "Домен Craft and Structure объединяет три ключевых субдомена: Words in Context, Text Structure & Purpose и Cross-Text Connections. На уровне 4 задания требуют глубокого анализа риторических стратегий, контекстуальной нюансировки академической лексики и точного сравнения концептуальных позиций авторов."
+    },
+    {
+      "order": 2,
+      "title": "Распознавание тонких контекстуальных оттенков и структурных связей",
+      "content": "В сложных академических пассажах авторы часто используют тонкую иронию, академическую оговорку (hedging) или сложные риторические сдвиги (например, от описания эмпирической аномалии к пересмотру теоретической парадигмы). Крайне важно анализировать не только прямое значение слов, но и риторическую функцию каждого фрагмента."
+    },
+    {
+      "order": 3,
+      "title": "Стратегия исключения дистракторов продвинутого уровня",
+      "content": "Дистракторы уровня 4 часто используют искаженную терминологию, фрагментарно верные детали из текста или смещают акцент с риторической цели на простой пересказ содержания. Всегда проверяйте, отвечает ли выбранный вариант на точный вопрос задания."
+    }
+  ],
+  "quiz": [
+    {
+      "orderInLevel": 1,
+      "stem": "The following text is adapted from a discussion on historiography.\n\nWhile traditional accounts of the industrial revolution focused almost exclusively on technological innovations like the steam engine, recent scholarship has begun to ______ the crucial role played by informal commercial networks and credit systems, arguing that without these institutional foundations, technological inventions would have remained economically isolated curiosity pieces.\n\nWhich choice completes the text with the most logical and precise word or phrase?",
+      "choiceA": "illuminate",
+      "choiceB": "diminish",
+      "choiceC": "fabricate",
+      "choiceD": "overlook",
+      "correctChoice": "A",
+      "explanation": "Правильный ответ — A. Контекст указывает на сдвиг в историографии: новые исследования привлекают внимание к важности неформальных торговых сетей («crucial role»), показывая их значимость. Слово «illuminate» (освещать, проливать свет) точно передает эту функцию. «Diminish» (уменьшать) и «overlook» (упускать из виду) противоречат признанию их важной роли, а «fabricate» (фабриковать) имеет негативный оттенок подделки.",
+      "difficulty": "EASY"
+    },
+    {
+      "orderInLevel": 2,
+      "stem": "For decades, evolutionary biologists debated whether host-parasite coevolution primarily drives speciation or merely accelerates genetic divergence within existing species. To address this, Dr. Kenneth Chen and colleagues conducted a multi-generational study on isolated pond populations of stickleback fish and their specific parasite, *Schistocephalus solidus*. **By tracking genomic shifts over thirty generations, Chen's team identified specific alleles associated with parasite resistance that simultaneously induced reproductive isolation from non-exposed populations.** This landmark result demonstrated that parasite-driven selection can indeed act as a direct mechanism for the emergence of new species.\n\nWhich choice best describes the function of the highlighted sentence in the text as a whole?",
+      "choiceA": "It presents the empirical findings of Chen's study that directly support the claim that host-parasite coevolution drives speciation.",
+      "choiceB": "It highlights a methodology that was criticized by contemporary biologists for failing to account for genetic divergence.",
+      "choiceC": "It introduces a theoretical paradox that contradicts the conclusions reached at the end of the experiment.",
+      "choiceD": "It contrasts Chen's observational techniques with traditional laboratory-based genetic mapping procedures.",
+      "correctChoice": "A",
+      "explanation": "Правильный ответ — A. Выделенное предложение описывает конкретное эмпирическое открытие исследования Чэня (выявление аллелей устойчивости, создающих репродуктивную изоляцию), которое доказывает главный вывод в конце текста — видообразование под действием паразитов. Вариант B некорректен (нет упоминания критики), C ошибочен (нет парадокса), D неверно говорит о сравнении методик.",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "orderInLevel": 3,
+      "stem": "Text 1\nMacroeconomist Dr. Julian Vance contends that central bank interventions, such as quantitative easing, are essential tools for stabilizing volatile economies during downturns. By injecting liquidity directly into the financial system, central banks lower borrowing costs, stimulate capital investment, and prevent severe deflationary spirals that would otherwise devastate employment.\n\nText 2\nFinancial analyst Sarah Mei cautions that prolonged central bank liquidity injections distort natural market signals. When interest rates are artificially suppressed, capital is frequently misallocated into speculative bubbles rather than productive long-term ventures. Mei points out that while central bank intervention may offer short-term relief, it accumulates systemic vulnerability that amplifies future market contractions.\n\nBased on the texts, how would Sarah Mei (Text 2) most likely characterize the argument presented by Dr. Vance (Text 1)?",
+      "choiceA": "As overly optimistic because it focuses on immediate economic stabilization while neglecting the long-term systemic risks created by liquidity injections.",
+      "choiceB": "As fundamentally sound because both authors agree that quantitative easing prevents long-term market contractions.",
+      "choiceC": "As inaccurate because central bank interventions have no measurable impact on short-term borrowing costs or employment.",
+      "choiceD": "As flawed because it underestmates the capacity of financial systems to recover from deflationary spirals without central bank involvement.",
+      "correctChoice": "A",
+      "explanation": "Правильный ответ — A. Ванс (Text 1) выделяет плюсы вмешательства ЦБ для краткосрочной стабилизации. Мэй (Text 2) признает краткосрочную пользу («short-term relief»), но предостерегает от накопления системных рисков и спекулятивных пузырей в долгосрочной перспективе. Поэтому Мэй сочтет аргумент Ванса излишне оптимистичным (overly optimistic) из-за игнорирования долгосрочных рисков. Вариант B ошибочен (нет согласия по долгосрочным последствиям), C неверно утверждает, что Мэй отрицает краткосрочный эффект, D смещает фокус на автономию рынков без выравнивания с текстом Мэй.",
+      "difficulty": "HARD"
+    }
+  ]
+}

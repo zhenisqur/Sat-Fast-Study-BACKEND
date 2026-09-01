@@ -1,0 +1,59 @@
+{
+"section": "READING_WRITING",
+"domain": "information_and_ideas",
+"domainLevel": 3,
+"topic": "Command of Evidence (Quantitative)",
+"sequenceLevel": 3,
+"scenarios": [
+{
+"order": 1,
+"title": "Сопоставление утверждения в тексте с данными графиков и таблиц",
+"content": "Задания Command of Evidence (Quantitative) требуют подкрепления тезиса из текста конкретными числовыми данными из графиков, гистограмм или таблиц. Сначала выделите ключевое утверждение автора, а затем найдите в представленных данных конкретные столбцы, строки или точки, которые напрямую подтверждают данную закономерность или сравнение."
+},
+{
+"order": 2,
+"title": "Ловушки неправильного чтения осей, единиц и категорий",
+"content": "Частые дистракторы в этом типе вопросов приводят реальные цифры из таблицы или графика, но перепутывают категории, единицы измерения (например, абсолютные значения вместо процентов) или направления осей. Всегда сверяйте названия столбцов и легенду диаграммы с формулировкой выбранного варианта ответа."
+},
+{
+"order": 3,
+"title": "Выбор данных для сложного сравнения и трендов",
+"content": "Если утверждение автора касается динамики (рост, падение) или относительного превосходства одной группы над другой, искомый ответ должен точно отражать указанный временной интервал или разницу показателей. Варианты, демонстрирующие верные цифры для другого периода или противоположный тренд, отсекаются."
+}
+],
+"quiz": [
+{
+"orderInLevel": 1,
+"stem": "Average Daily Visitor Count at City Museums (2022–2023)\n- History Museum: 2022 = 1,200; 2023 = 1,500\n- Art Gallery: 2022 = 800; 2023 = 950\n- Science Center: 2022 = 2,100; 2023 = 2,600\n\nA tourism analyst claims that all three major city museums experienced an increase in daily attendance from 2022 to 2023, with the Science Center maintaining the highest visitor count in both years.\n\nWhich choice best uses data from the text to support the analyst's claim?",
+"choiceA": "In 2022, the History Museum recorded 1,200 daily visitors, whereas the Art Gallery recorded 800 daily visitors.",
+"choiceB": "The Science Center's daily attendance rose from 2,100 in 2022 to 2,600 in 2023, remaining higher than that of the History Museum and Art Gallery in both years.",
+"choiceC": "The Art Gallery saw its attendance increase by 150 daily visitors, reaching a total of 1,500 in 2023.",
+"choiceD": "Daily attendance at the History Museum exceeded that of the Science Center in both 2022 and 2023.",
+"correctChoice": "B",
+"explanation": "Правильный ответ — B. Вариант B использует точные данные, показовывая рост посещаемости Центра науки (с 2,100 до 2,600) и подтверждая, что его показатели оставались наивысшими среди всех музеев в оба года. Вариант A описывает только 2022 год, C включает ошибочную цифру для галереи, D приводит утверждение, противоречащее фактам.",
+"difficulty": "EASY"
+},
+{
+"orderInLevel": 2,
+"stem": "Soil Nitrogen Content (%) and Plant Biomass (g) by Fertilizer Type\n- Fertilizer A: Nitrogen = 1.2%; Biomass = 45 g\n- Fertilizer B: Nitrogen = 2.8%; Biomass = 82 g\n- Fertilizer C: Nitrogen = 3.5%; Biomass = 110 g\n- Control (No Fertilizer): Nitrogen = 0.8%; Biomass = 25 g\n\nAn agronomist hypothesized that applying fertilizers with higher nitrogen concentrations produces a proportional increase in plant biomass compared to unfertilized control crops.\n\nWhich choice best uses data from the table to support the agronomist's hypothesis?",
+"choiceA": "Crops grown with Fertilizer C produced 110 g of biomass at 3.5% soil nitrogen, representing the highest biomass and nitrogen levels among all tested conditions.",
+"choiceB": "Crops grown with Fertilizer A produced less biomass than unfertilized control crops despite having higher soil nitrogen.",
+"choiceC": "The control group achieved 45 g of biomass, which was higher than the biomass produced using Fertilizer B.",
+"choiceD": "Fertilizer B resulted in lower soil nitrogen levels than Fertilizer A, leading to reduced overall plant biomass.",
+"correctChoice": "A",
+"explanation": "Правильный ответ — A. Гипотеза связывает рост концентрации азота с пропорциональным увеличением биомассы. Вариант A показывает наивысшие значения азота (3.5%) и биомассы (110 g) у Удобрения C, что прямо подтверждает позитивную корреляцию. Варианты B, C и D искажают табличные данные или выдумывают несуществующие тренды.",
+"difficulty": "MEDIUM"
+},
+{
+"orderInLevel": 3,
+"stem": "Renewable Energy Adoption Rates by Region (2015 vs 2020)\n- Region Alpha: 2015 = 14%; 2020 = 38%\n- Region Beta: 2015 = 22%; 2020 = 29%\n- Region Gamma: 2015 = 8%; 2020 = 12%\n\nAn energy policy researcher argues that while all three regions expanded their renewable energy capacity between 2015 and 2020, Region Alpha achieved the most rapid acceleration, surpassing Region Beta, which originally held the lead in 2015.\n\nWhich choice best uses data from the text to support the researcher's argument?",
+"choiceA": "Region Beta had the highest adoption rate in 2015 at 22%, but Region Alpha's adoption rate grew by 24 percentage points to reach 38% in 2020, exceeding Region Beta's 2020 rate of 29%.",
+"choiceB": "Region Gamma maintained the lowest renewable adoption rate in both years, growing from 14% in 2015 to 38% in 2020.",
+"choiceC": "Region Alpha started with an adoption rate of 22% in 2015 and increased to 29% in 2020, matching Region Beta's performance.",
+"choiceD": "Between 2015 and 2020, Region Beta increased its adoption rate by 24 percentage points, making it the fastest-growing region.",
+"correctChoice": "A",
+"explanation": "Правильный ответ — A. Вариант A подкрепляет тезис исследователя: он отмечает лидерство Региона Beta в 2015 г. (22%), рост Региона Alpha на 24 процентных пункта до 38% в 2020 г. и то, что Alpha обогнал показатель Beta (29%). Варианты B, C и D некорректно сопоставляют данные и приписывают показатели одних регионов другим.",
+"difficulty": "HARD"
+}
+]
+}

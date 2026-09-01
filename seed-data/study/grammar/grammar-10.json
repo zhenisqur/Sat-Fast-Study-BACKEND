@@ -1,0 +1,59 @@
+{
+  "section": "READING_WRITING",
+  "domain": "expression_of_ideas",
+  "domainLevel": 1,
+  "topic": "Rhetorical Synthesis",
+  "sequenceLevel": 10,
+  "scenarios": [
+    {
+      "order": 1,
+      "title": "Определение риторической цели задания (Goal-Oriented Synthesis)",
+      "content": "В заданиях Rhetorical Synthesis вам дается список заметок (bullet points) с информацией по теме и конкретная цель в формулировке вопроса (например: «подчеркнуть различие», «представить исследовательский метод» или «привести пример»). Самое важное правило — ориентироваться именно на цель вопроса, а не пытаться пересказать абсолютно все факты из заметок."
+    },
+    {
+      "order": 2,
+      "title": "Стратегия отбора нужных заметок",
+      "content": "Проанализируйте, какие именно из представленных заметок напрямую работают на выполнение заданной риторической цели. Откиньте лишние факты. Правильный вариант ответа объединит только релевантные детали в одно связное, грамматически корректное предложение."
+    },
+    {
+      "order": 3,
+      "title": "Фильтрация распространенных дистракторов",
+      "content": "Типичные ошибочные варианты ответа: 1) содержат факт, который отсутствует в заметках (внешняя информация); 2) верно передают факты, но выполняют совершенно ДРУГУЮ риторическую цель (например, описывают сходство вместо различия); 3) содержат некорректные логические связи между фактами."
+    }
+  ],
+  "quiz": [
+    {
+      "orderInLevel": 1,
+      "stem": "While preparing a report on marine biology, a student took the following notes:\n- Phytoplankton are microscopic photosynthetic organisms living in upper ocean layers.\n- Zooplankton are small aquatic animals that feed on phytoplankton and organic debris.\n- Phytoplankton generate energy through photosynthesis using sunlight and carbon dioxide.\n- Zooplankton obtain energy by consuming other organisms.\n- Both play foundational roles in marine food webs.\n\nThe student wants to emphasize a difference between phytoplankton and zooplankton.\nWhich choice best uses relevant information from the notes to accomplish this goal?",
+      "choiceA": "Both phytoplankton and zooplankton are small organisms that play foundational roles in ocean ecosystems.",
+      "choiceB": "Phytoplankton produce energy through photosynthesis, whereas zooplankton acquire energy by feeding on other organisms.",
+      "choiceC": "Phytoplankton live in upper ocean layers, where they form the base of marine food webs alongside zooplankton.",
+      "choiceD": "Zooplankton consume phytoplankton, which are microscopic photosynthetic organisms.",
+      "correctChoice": "B",
+      "explanation": "Правильный ответ — B. Цель задания — подчеркнуть РАЗЛИЧИЕ (emphasize a difference). Вариант B напрямую противопоставляет способ получения энергии («produce energy through photosynthesis, whereas... acquire energy by feeding»). Вариант A подчеркивает сходство, C описывает местообитание без контраста, а D лишь констатирует факт питания одного другим без четкого контраста механизмов.",
+      "difficulty": "EASY"
+    },
+    {
+      "orderInLevel": 2,
+      "stem": "A student is writing an essay on historical metallurgy and took the following notes:\n- Damascene steel blades were famed across Medieval Europe and the Middle East for their sharpness and distinctive wavy patterns.\n- Modern electron microscopy reveals that the wavy patterns resulted from microscopic carbon nanotubes embedded within the steel matrix.\n- The specific manufacturing technique for authentic Damascene steel was lost in the 18th century.\n- Material scientist Dr. Heinz Pendray successfully replicated the microstructural pattern in 2006 using high-carbon crucible steel alloyed with trace amounts of vanadium.\n\nThe student wants to present Dr. Pendray's achievement to an audience familiar with Damascene steel.\nWhich choice best uses relevant information from the notes to accomplish this goal?",
+      "choiceA": "Damascene steel blades, renowned for their sharpness, feature distinct wavy patterns caused by carbon nanotubes.",
+      "choiceB": "Although the original technique for making Damascene steel was lost in the 18th century, Dr. Heinz Pendray successfully replicated its microstructural pattern in 2006 using high-carbon crucible steel and vanadium.",
+      "choiceC": "Dr. Heinz Pendray used modern electron microscopy to study 18th-century metallurgy and high-carbon vanadium alloys.",
+      "choiceD": "Famed across Medieval Europe, Damascene steel blades contained carbon nanotubes that were lost until material scientists discovered them in 2006.",
+      "correctChoice": "B",
+      "explanation": "Правильный ответ — B. Цель — представить достижение Пендрей публике, уже знакомой со сталью. Вариант B объясняет, что оригинальный метод был утрачен, но Пендрей воссоздал микроструктуру в 2006 году, используя определенный сплав. Варианты A и D сфокусированы на истории/нанотрубках без четкого описания достижения Пендрей, а C искажает факты (он воссоздал структуру, а не просто изучил микроскопией).",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "orderInLevel": 3,
+      "stem": "A student is composing a presentation on urban ecology and took the following notes:\n- Green roofs are building rooftops partially or completely covered with vegetation planted over a waterproofing membrane.\n- Intensive green roofs have deep soil layers (over 15 cm), support large plants like shrubs or small trees, and require high structural support and regular maintenance.\n- Extensive green roofs have shallow soil layers (under 15 cm), host low-growing sedums or grasses, are lightweight, and demand minimal maintenance.\n- City planners in Chicago installed extensive green roofs on municipal buildings to reduce stormwater runoff and lower ambient urban heat.\n\nThe student wants to contrast intensive green roofs with extensive green roofs regarding their structural requirements and vegetation types.\nWhich choice best uses relevant information from the notes to accomplish this goal?",
+      "choiceA": "Extensive green roofs host low-growing grasses and sedums, making them ideal for city planners in Chicago aiming to reduce urban heat.",
+      "choiceB": "While intensive green roofs require high structural support to hold deep soil and large plants like shrubs, extensive green roofs are lightweight structures supporting shallow soil and low-growing vegetation.",
+      "choiceC": "Intensive green roofs feature deep soil layers that support shrubs and trees, requiring regular maintenance to function effectively.",
+      "choiceD": "Green roofs can be either intensive or extensive, both of which require waterproofing membranes to manage stormwater runoff in modern cities.",
+      "correctChoice": "B",
+      "explanation": "Правильный ответ — B. Цель — сопоставить (contrast) интенсивные и экстенсивные крыши по двум критериям: 1) конструктивные требования (structural support/weight) и 2) типы растительности (shrubs vs low-growing vegetation). Вариант B идеально объединяет эти два фактора в контрастном представлении. Вариант A упускает интенсивные крыши, C забывает про экстенсивные, а D говорит о сходствах (waterproofing), игнорируя контраст.",
+      "difficulty": "HARD"
+    }
+  ]
+}

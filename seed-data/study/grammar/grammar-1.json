@@ -1,0 +1,59 @@
+{
+"section": "READING_WRITING",
+"domain": "information_and_ideas",
+"domainLevel": 1,
+"topic": "Central Ideas & Details",
+"sequenceLevel": 1,
+"scenarios": [
+{
+"order": 1,
+"title": "Выделение главной мысли через обобщающий вывод",
+"content": "В заданиях на Central Idea академический текст строится по принципу тезиса и доказательств. Главная мысль — это объединенное суждение, охватывающее весь пассаж целиком, а не отдельный приведенный факт. Ищите предложение (часто в начале или самом конце), которое связывает все упоминаемые детали в единую логическую концепцию."
+},
+{
+"order": 2,
+"title": "Отличие Central Idea от специфической детали",
+"content": "Главная распространенная ловушка SAT — варианты ответов, которые являются абсолютно верными по содержанию текста, но описывают лишь один узкий пример или конкретный факт (Supporting Detail). Если вариант ответа можно подтвердить только одним предложенным предложением, а не всем пассажем, это деталь, а не главная мысль."
+},
+{
+"order": 3,
+"title": "Фильтрация вариантов с искажением или крайностями",
+"content": "При анализе вариантов ответов отсекайте дистракторы со слишком крайними утверждениями (never, always, only), если в тексте использованы умеренные формулировки (may, often, suggest). Также отбрасывайте варианты, которые вносят информацию, отсутствующую в пассаже, или искажают причинно-следственные связи оригинального текста."
+}
+],
+"quiz": [
+{
+"orderInLevel": 1,
+"stem": "The following text is adapted from a 1912 article about plant biology.\n\nPlants rely on various mechanisms to transport water from their roots to their leaves. While capillary action plays a minor role in small plants, it is insufficient to explain how water reaches the tops of tall trees. Instead, botanists have determined that transpirational pull—a process driven by the evaporation of water from leaf surfaces—creates a continuous tension that draws water upward through the xylem vessels even in giant sequoias.\n\nWhich choice best states the main idea of the text?",
+"choiceA": "Capillary action is the primary force responsible for water transport in tall trees.",
+"choiceB": "Transpirational pull provides the necessary force to transport water to the tops of tall trees.",
+"choiceC": "Giant sequoias rely exclusively on root pressure to absorb nutrients from the soil.",
+"choiceD": "Evaporation from leaf surfaces prevents plants from retaining essential water supplies.",
+"correctChoice": "B",
+"explanation": "Правильный ответ — B. Текст объясняет, что капиллярного действия недостаточно для высоких деревьев и что транспирационная тяга (transpirational pull) является основным механизмом, поднимающим воду на вершину высоких деревьев. Вариант A противоречит тексту, C и D вводят ложные факты, отсутствующие в отрывке.",
+"difficulty": "EASY"
+},
+{
+"orderInLevel": 2,
+"stem": "In recent decades, marine biologists have noted that urban coastal developments significantly alter underwater acoustic environments. Construction activities, commercial shipping, and recreational boating generate continuous low-frequency noise. Researchers studied a population of bottlenose dolphins living near a bustling port and discovered that the animals modified the frequency and structure of their communication whistles. While these acoustic adjustments enable dolphins to overcome background noise, scientists caution that the increased vocal effort requires more energy and may elevate stress levels in the population over time.\n\nWhich choice best describes the overall main idea of the text?",
+"choiceA": "Commercial shipping and recreational boating are the primary causes of dolphin population decline in coastal regions.",
+"choiceB": "Dolphins have successfully eliminated all negative consequences of marine noise pollution through vocal adaptations.",
+"choiceC": "Urban noise pollution forces dolphins to adapt their communication, which may have long-term physiological costs.",
+"choiceD": "Bottlenose dolphins near busy ports communicate using lower frequency whistles than populations in undisturbed habitats.",
+"correctChoice": "C",
+"explanation": "Правильный ответ — C. Пассаж сначала описывает проблему городского шума, затем объясняет, что дельфины меняют свои свисты для адаптации, и завершает предупреждением об энергетических затратах и стрессе. Вариант A делает крайнее утверждение о сокращении популяции (decline), B ложно заявляет о полном устранении последствий, а D искажает детали адаптации.",
+"difficulty": "MEDIUM"
+},
+{
+"orderInLevel": 3,
+"stem": "Historians studying the Renaissance economy have long debated the role of merchant guilds in technological innovation. Traditional scholarship argued that guilds functioned primarily as restrictive monopolies that suppressed competition and blocked the adoption of novel manufacturing techniques to protect their members' status. However, historian Elena Rostova examined 15th-century archival records from Venetian textile workshops and found that guilds frequently funded experimental dyeing methods and established formal mechanisms to reward artisans who introduced labor-saving machinery. Rostova's findings suggest that medieval institutions were far more dynamic catalysts for technical progress than previously recognized.\n\nWhich choice best summarizes the main idea of the text?",
+"choiceA": "Archival records from Venice prove that textile workshops were the only medieval entities driving technical progress.",
+"choiceB": "Rostova's research challenges the traditional view of guilds by demonstrating that some actively supported innovation.",
+"choiceC": "Traditional scholars were correct in asserting that merchant guilds held restrictive monopolies over manufacturing.",
+"choiceD": "The primary function of 15th-century Venetian guilds was to establish formal legal protections for textile artisans.",
+"correctChoice": "B",
+"explanation": "Правильный ответ — B. Текст противопоставляет традиционный взгляд на гильдии как на препятствие для прогресса исследованиям Ростовой, которые показывают, что гильдии финансировали и поощряли инновации. Вариант A содержит крайнее ограничение (only), C утверждает противоположное выводу автора, а D выделяет одну узкую деталь текстильных мастерских Венеции вместо обобщения всего пассажа.",
+"difficulty": "HARD"
+}
+]
+}

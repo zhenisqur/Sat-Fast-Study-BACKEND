@@ -1,0 +1,58 @@
+{
+"domain": "algebra",
+"domainLevel": 6,
+"topic": "Slope & rate of change",
+"sequenceLevel": 6,
+"scenarios": [
+{
+"order": 1,
+"title": "Формула наклона по двум точкам",
+"content": "Угловой коэффициент (наклон) m прямой показывает отношение изменения координаты y к изменению координаты x между любыми двумя точками на прямой. Формула наклона вычисляется как m = (y2 - y1) / (x2 - x1). Важно подставлять координаты строго в одном и том же порядке: если вы начинаете с y2 в числителе, то в знаменателе вы обязаны вычитать x1 из x2. Например, для точек (2, 5) и (6, 17) наклон равен m = (17 - 5) / (6 - 2) = 12 / 4 = 3."
+},
+{
+"order": 2,
+"title": "Интерпретация наклона как скорости изменения",
+"content": "В текстовых задачах Digital SAT наклон прямой обозначает постоянную скорость изменения (rate of change) одной величины относительно другой. Значение наклона m показывает, на сколько единиц изменяется зависимая переменная y при увеличении независимой переменной x ровно на 1 единицу. Обязательно обращайте внимание на единицы измерения: если y измеряется в долларах, а x в часах, наклон m представляет собой стоимость в долларах за один час ($/hour)."
+},
+{
+"order": 3,
+"title": "Особые случаи наклона прямых",
+"content": "Горизонтальная прямая имеет наклон m = 0, так как y не меняется (уравнение вида y = c). Вертикальная прямая имеет неопределенный наклон (undefined slope), так как изменение x равно нулю и происходит деление на ноль (уравнение вида x = c). Параллельные прямые всегда имеют одинаковый наклон (m1 = m2). Наклоны перпендикулярных прямых отрицательны и обратны друг другу (m1 * m2 = -1), то есть наклон перпендикулярной прямой равен -1/m."
+}
+],
+"quiz": [
+{
+"orderInLevel": 1,
+"stem": "A line in the xy-plane passes through the points (3, 7) and (7, 19). What is the slope of the line?",
+"choiceA": "2",
+"choiceB": "3",
+"choiceC": "4",
+"choiceD": "12",
+"correctChoice": "B",
+"explanation": "Используем формулу наклона m = (y2 - y1) / (x2 - x1). Подставим координаты точек (3, 7) и (7, 19): m = (19 - 7) / (7 - 3) = 12 / 4 = 3. Правильный ответ — B.",
+"difficulty": "EASY"
+},
+{
+"orderInLevel": 2,
+"stem": "The graph of the linear function f models the amount of water, in gallons, remaining in a tank t minutes after a drain was opened. If f(5) = 420 and f(12) = 280, which statement is the best interpretation of the slope of the graph of y = f(t)?",
+"choiceA": "The tank drains at a rate of 20 gallons per minute.",
+"choiceB": "The tank drains at a rate of 140 gallons per minute.",
+"choiceC": "The tank had 140 gallons of water before the drain was opened.",
+"choiceD": "The tank will be completely empty after 20 minutes.",
+"correctChoice": "A",
+"explanation": "Найдем наклон функции m = (f(12) - f(5)) / (12 - 5) = (280 - 420) / (12 - 5) = -140 / 7 = -20. Наклон m = -20 означает, что каждые 1 минуту количество воды в баке уменьшается на 20 галлонов (вытекает со скоростью 20 галлонов в минуту). Правильный ответ — A.",
+"difficulty": "MEDIUM"
+},
+{
+"orderInLevel": 3,
+"stem": "Line k passes through the points (2, -5) and (8, r). Line p is perpendicular to line k and has an equation of 2x + 4y = 15. What is the value of r?",
+"choiceA": "7",
+"choiceB": "10",
+"choiceC": "12",
+"choiceD": "17",
+"correctChoice": "A",
+"explanation": "Перепишем уравнение прямой p в виде y = mx + b: 4y = -2x + 15 => y = -1/2 x + 15/4. Наклон прямой p равен m_p = -1/2. Так как прямая k перпендикулярна p, ее наклон равен противоположному и обратному числу: m_k = 2. Вычислим наклон прямой k по формуле: (r - (-5)) / (8 - 2) = 2 => (r + 5) / 6 = 2 => r + 5 = 12 => r = 7. Правильный ответ — A.",
+"difficulty": "HARD"
+}
+]
+}

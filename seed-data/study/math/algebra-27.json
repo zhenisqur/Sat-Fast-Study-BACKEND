@@ -1,0 +1,58 @@
+{
+  "domain": "geometry_and_trigonometry",
+  "domainLevel": 3,
+  "topic": "Circles",
+  "sequenceLevel": 27,
+  "scenarios": [
+    {
+      "order": 1,
+      "title": "Уравнение окружности в декартовой системе координат",
+      "content": "Стандартное уравнение окружности с центром в точке (h, k) и радиусом r имеет вид (x - h)² + (y - k)² = r². Если уравнение дано в развернутом виде (x² + y² + Ax + By + C = 0), для нахождения центра и радиуса используется метод выделения полного квадрата (completing the square) отдельно для переменных x и y."
+    },
+    {
+      "order": 2,
+      "title": "Длина дуги и площадь сектора",
+      "content": "Длина дуги (arc length) и площадь сектора (sector area) представляют собой пропорциональные доли от полной длины окружности (2πr) и ее полной площади (πr²). Если центральный угол равен θ градусов, то длина дуги L = (θ / 360°) · 2πr, а площадь сектора A = (θ / 360°) · πr². В радианах эти формулы упрощаются до L = rθ и A = (1/2)r²θ."
+    },
+    {
+      "order": 3,
+      "title": "Вписанные и центральные углы, свойства касательных",
+      "content": "Центральный угол равен градусной мере дуги, на которую он опирается. Вписанный угол (inscribed angle) равен половине центрального угла, опирающегося на ту же дугу. Касательная к окружности (tangent line) всегда перпендикулярна радиусу, проведенному в точку касания (образует угол 90°)."
+    }
+  ],
+  "quiz": [
+    {
+      "orderInLevel": 1,
+      "stem": "The equation of a circle in the xy-plane is given by (x - 4)² + (y + 3)² = 36. What are the coordinates of the center and the length of the radius of the circle?",
+      "choiceA": "Center (4, -3), radius 6",
+      "choiceB": "Center (-4, 3), radius 6",
+      "choiceC": "Center (4, -3), radius 36",
+      "choiceD": "Center (-4, 3), radius 36",
+      "correctChoice": "A",
+      "explanation": "Уравнение окружности имеет вид (x - h)² + (y - k)² = r², где (h, k) — координаты центра, а r — радиус. Перепишем уравнение: (x - 4)² + (y - (-3))² = 6². Центр находится в точке (4, -3), а радиус равен r = √36 = 6. Правильный ответ — A.",
+      "difficulty": "EASY"
+    },
+    {
+      "orderInLevel": 2,
+      "stem": "A circle has a radius of 12 inches. What is the area, in square inches, of a sector bounded by a central angle of 60°?",
+      "choiceA": "24π",
+      "choiceB": "12π",
+      "choiceC": "48π",
+      "choiceD": "4π",
+      "correctChoice": "A",
+      "explanation": "Площадь сектора вычисляется по формуле A = (θ / 360°) · πr². Подставим радиус r = 12 и центральный угол θ = 60°: A = (60 / 360) · π · (12)² = (1 / 6) · π · 144 = 24π. Правильный ответ — A.",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "orderInLevel": 3,
+      "stem": "In the xy-plane, the equation of a circle is x² + y² - 8x + 6y - 11 = 0. What is the radius of the circle?",
+      "choiceA": "6",
+      "choiceB": "36",
+      "choiceC": "11",
+      "choiceD": "sqrt(11)",
+      "correctChoice": "A",
+      "explanation": "Приведем уравнение к каноническому виду путем выделения полных квадратов. Сгруппируем слагаемые: (x² - 8x) + (y² + 6y) = 11. Добавим необходимые числа с обеих сторон уравнения: (x² - 8x + 16) + (y² + 6y + 9) = 11 + 16 + 9 => (x - 4)² + (y + 3)² = 36. Таким образом, r² = 36, откуда радиус r = 6. Правильный ответ — A.",
+      "difficulty": "HARD"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "domain": "problem_solving_and_data_analysis",
+  "domainLevel": 5,
+  "topic": "Statistics",
+  "sequenceLevel": 22,
+  "scenarios": [
+    {
+      "order": 1,
+      "title": "Меры центральной тенденции: среднее арифметическое и медиана",
+      "content": "Среднее арифметическое (mean) вычисляется как сумма всех значений, деленная на их количество (x̄ = Σx / n). Медиана (median) — это серединное значение упорядоченного по возрастанию набора данных. На выбросы (outliers) и асимметрию распределения сильное влияние оказывает среднее значение, тогда как медиана сохраняет устойчивость (робастность). При добавлении в выборку аномально высокого значения среднее существенно увеличивается, а медиана практически не меняется."
+    },
+    {
+      "order": 2,
+      "title": "Меры разброса данных: размах, межквартильный размах и стандартное отклонение",
+      "content": "Размах (range) равен разности между максимальным и минимальным значениями выборки. Межквартильный размах (interquartile range, IQR) равен разности между третьим и первым квартилями (IQR = Q3 - Q1) и показывает разброс центральных 50% данных. Стандартное отклонение (standard deviation) измеряет среднее отклонение данных от среднего арифметического. Чем дальше элементы распределены от центра, тем больше стандартное отклонение."
+    },
+    {
+      "order": 3,
+      "title": "Выборки, погрешность измерений и генеральная совокупность",
+      "content": "Для того чтобы результаты исследования выборки (sample) можно было распространить на всю генеральную совокупность (population), выборка должна быть репрезентативной и формироваться случайным образом (random sampling). Погрешность оценки (margin of error) снижается при увеличении размера выборки. Случайное распределение по группам (random assignment) в экспериментах позволяет устанавливать причинно-следственные связи (cause-and-effect relationships)."
+    }
+  ],
+  "quiz": [
+    {
+      "orderInLevel": 1,
+      "stem": "A set of numbers consists of five values: 8, 12, 15, 21, and x. If the mean of the five numbers is 15, what is the value of x?",
+      "choiceA": "19",
+      "choiceB": "16",
+      "choiceC": "18",
+      "choiceD": "20",
+      "correctChoice": "A",
+      "explanation": "Среднее арифметическое пяти чисел равно 15, значит, их сумма равна 15 * 5 = 75. Составим уравнение: 8 + 12 + 15 + 21 + x = 75 => 56 + x = 75 => x = 75 - 56 = 19. Правильный ответ — A.",
+      "difficulty": "EASY"
+    },
+    {
+      "orderInLevel": 2,
+      "stem": "A data set contains 11 distinct positive integers. The median of the data set is 24. If the largest number in the data set is increased by 50, which of the following measures of center or spread MUST remain unchanged?",
+      "choiceA": "Median",
+      "choiceB": "Mean",
+      "choiceC": "Range",
+      "choiceD": "Standard deviation",
+      "correctChoice": "A",
+      "explanation": "Изменение максимального значения в упорядоченном наборе данных влияет на среднее значение (mean), размах (range) и стандартное отклонение (standard deviation). Однако позиция и значение центрального (6-го) элемента — медианы — не изменятся, так как порядок элементов в первой половине и положение середины остаются прежними. Правильный ответ — A.",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "orderInLevel": 3,
+      "stem": "A researcher selected a random sample of 400 students from a university with 8,000 students to estimate the average time spent studying per week. The sample mean was 14 hours, with a margin of error of 1.2 hours at a 95% confidence level. Which of the following is the most appropriate conclusion based on these results?",
+      "choiceA": "It is plausible that the average study time for all students at the university is between 12.8 and 15.2 hours per week.",
+      "choiceB": "Exactly 95% of the students at the university study between 12.8 and 15.2 hours per week.",
+      "choiceC": "The average study time for any randomly selected student will be between 12.8 and 15.2 hours per week.",
+      "choiceD": "If another sample of 400 students is selected, the sample mean will definitely be 14 hours.",
+      "correctChoice": "A",
+      "explanation": "Доверительный интервал строится как (Среднее - Погрешность, Среднее + Погрешность), что дает (14 - 1.2, 14 + 1.2) = (12.8, 15.2). Погрешность оценки с заданным уровнем доверия указывает на то, что истинное среднее значение всей генеральной совокупности (всех 8,000 студентов) с высокой вероятностью лежит в пределах от 12.8 до 15.2 часов. Утверждение B неверно, так как интервал относится к среднему значению совокупности, а не к отдельным индивидуальным показателям студентов. Правильный ответ — A.",
+      "difficulty": "HARD"
+    }
+  ]
+}

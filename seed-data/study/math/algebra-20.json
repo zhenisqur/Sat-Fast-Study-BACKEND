@@ -1,0 +1,58 @@
+{
+"domain": "problem_solving_and_data_analysis",
+"domainLevel": 3,
+"topic": "Units & rates",
+"sequenceLevel": 20,
+"scenarios": [
+{
+"order": 1,
+"title": "Единицы измерения и составные величины",
+"content": "Скорость, плотность и производительность — это составные величины (rates), связывающие две разные единицы измерения. Главное правило при решении базовых задач — использование базовых формул: Скорость = Расстояние / Время (v = d / t), Плотность = Масса / Объем (D = m / V), Производительность = Работа / Время (R = W / t). Всегда проверяйте соответствие единиц измерения перед вычислениями."
+},
+{
+"order": 2,
+"title": "Многошаговая конвертация сложных единиц",
+"content": "При переподсчете сложных единиц измерения (например, из километров в час в метры в секунду или из квадратных ярдов в квадратные feet) используйте последовательные коэффициенты перевода. Помните, что при конвертации единиц площади и объема коэффициент перевода единиц длины возводится в соответствующую степень: 1 yard = 3 feet => 1 sq yard = 3^2 = 9 sq feet; 1 cubic yard = 3^3 = 27 cubic feet."
+},
+{
+"order": 3,
+"title": "Совместная работа и усредненные показатели",
+"content": "Средняя скорость движения на всем пути равна общему расстоянию, деленному на общее затраченное время: V_avg = D_total / T_total. Средняя скорость НЕ равна среднему арифметическому скоростей на отдельных участках! При совместной работе производительности складываются: R_total = R_1 + R_2, где R = 1 / t."
+}
+],
+"quiz": [
+{
+"orderInLevel": 1,
+"stem": "A car travels at a constant speed of 45 miles per hour. How many miles does the car travel in 3 hours and 20 minutes?",
+"choiceA": "150",
+"choiceB": "145",
+"choiceC": "135",
+"choiceD": "160",
+"correctChoice": "A",
+"explanation": "Переведем время в часы: 3 часа 20 минут = 3 + 20/60 = 3 + 1/3 = 10/3 часа. Вычислим расстояние: d = v * t = 45 * (10/3) = 15 * 10 = 150 миль. Правильный ответ — A.",
+"difficulty": "EASY"
+},
+{
+"orderInLevel": 2,
+"stem": "A cylindrical water tank has a capacity of 12 cubic meters. Given that 1 cubic meter is equal to 1,000 liters, and water is pumped into the tank at a rate of 250 liters per minute, how many minutes will it take to fill the empty tank completely?",
+"choiceA": "48",
+"choiceB": "30",
+"choiceC": "40",
+"choiceD": "60",
+"correctChoice": "A",
+"explanation": "Сначала переведем объем бака из кубических метров в литры: 12 * 1,000 = 12,000 литров. Затем найдем время затягивания: t = Объем / Скорость = 12,000 / 250 = 48 минут. Правильный ответ — A.",
+"difficulty": "MEDIUM"
+},
+{
+"orderInLevel": 3,
+"stem": "A rug manufacturer measures weight density in ounces per square foot. A rectangular rug has dimensions of 6 feet by 8 feet and a total weight of 18 pounds. Given that 1 pound = 16 ounces, what is the weight density of the rug, in ounces per square foot?",
+"choiceA": "6",
+"choiceB": "8",
+"choiceC": "4.5",
+"choiceD": "12",
+"correctChoice": "A",
+"explanation": "Вычислим площадь ковра: 6 * 8 = 48 кв. футов. Переведем вес ковра из фунтов в унции: 18 * 16 = 288 унций. Найдем плотность веса на квадратный фут: 288 / 48 = 6 унций на кв. фут. Правильный ответ — A.",
+"difficulty": "HARD"
+}
+]
+}
