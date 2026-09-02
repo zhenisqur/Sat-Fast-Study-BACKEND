@@ -10,6 +10,6 @@ import { AdminModule } from './modules/admin/admin.module';
 import { StudyModule } from './modules/study/study.module';
 
 @Module({
-  imports: [ConfigModule, PrismaModule, AuthModule, UsersModule, SatModule, LevelsModule, AiModule, AdminModule],
+  imports: [ConfigModule, PrismaModule, AuthModule, UsersModule, SatModule, LevelsModule, AiModule, AdminModule, StudyModule],
 })
 export class AppModule {}
