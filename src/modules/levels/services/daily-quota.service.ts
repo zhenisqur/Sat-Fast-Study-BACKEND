@@ -13,6 +13,13 @@ export class DailyQuotaService {
     private readonly prisma: PrismaService,
   ) {}
 
+  // Отдаёт текущую дневную норму без записи ответа — для Dashboard,
+  // чтобы фронт мог показать "12/15 math" сразу при открытии, не дожидаясь
+  // первого ответа пользователя.
+  async getToday(userId: string) {
+    return this.dailyQuotaRepository.getOrCreateToday(userId);
+  }
+
   async submitAnswer(userId: string, section: SatSection, dto: SubmitLevelAnswerDto) {
     const question = await this.prisma.question.findUnique({ where: { id: dto.questionId } });
     if (!question) throw new NotFoundException('Вопрос не найден');
@@ -65,7 +72,7 @@ export class DailyQuotaService {
       leveledUp,
       correctChoice: correctness === 'INCORRECT' ? question.correctChoice : null,
       explanation: correctness === 'INCORRECT' ? question.explanation : null,
-  };
+    };
   }
 
   private async getOrCreateVirtualAttemptId(userId: string): Promise<string> {

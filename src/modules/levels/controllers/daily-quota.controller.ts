@@ -1,4 +1,4 @@
-﻿import { Body, Controller, Param, Post, UseGuards } from '@nestjs/common';
+﻿import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '@common/guards/jwt-auth.guard';
 import { CurrentUser } from '@common/decorators/current-user.decorator';
 import { SatSection } from '@prisma/client';
@@ -9,6 +9,11 @@ import { SubmitLevelAnswerDto } from '../dto/submit-level-answer.dto';
 @Controller('levels/daily-quota')
 export class DailyQuotaController {
   constructor(private readonly dailyQuotaService: DailyQuotaService) {}
+
+  @Get('today')
+  async getToday(@CurrentUser() user: { userId: string }) {
+    return this.dailyQuotaService.getToday(user.userId);
+  }
 
   @Post(':section/answer')
   async submitAnswer(
