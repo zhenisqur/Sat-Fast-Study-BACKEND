@@ -12,9 +12,9 @@ export const MATH_DOMAINS: DomainDefinition[] = [
     topics: ["Linear equations","Linear equations in context","Systems of equations","Linear inequalities","Linear functions","Slope & rate of change","Algebraic expressions","Mixed Algebra"] },
   { key: "advanced_math", section: "MATH", title: "Advanced Math", totalLevels: 9, sequenceStart: 9,
     topics: ["Quadratic equations","Quadratic functions","Exponents & radicals","Polynomial expressions","Nonlinear equations","Nonlinear functions","Rational expressions","Equivalent expressions","Mixed Advanced Math"] },
-  { key: "problem_solving", section: "MATH", title: "Problem-Solving & Data Analysis", totalLevels: 7, sequenceStart: 18,
+  { key: "problem_solving_and_data_analysis", section: "MATH", title: "Problem-Solving & Data Analysis", totalLevels: 7, sequenceStart: 18,
     topics: ["Ratios & proportions","Percentages","Units & rates","Tables & graphs","Statistics","Probability","Data analysis & word problems"] },
-  { key: "geometry", section: "MATH", title: "Geometry & Trigonometry", totalLevels: 6, sequenceStart: 25,
+  { key: "geometry_and_trigonometry", section: "MATH", title: "Geometry & Trigonometry", totalLevels: 6, sequenceStart: 25,
     topics: ["Lines & angles","Triangles","Circles","Area & volume","Right triangles & trigonometry","Mixed Geometry"] },
 ];
 
