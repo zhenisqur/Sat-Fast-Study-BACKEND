@@ -1,98 +1,81 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# SAT FAST STUDY — Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+API-сервер для мобильного приложения подготовки к Digital SAT в стиле Duolingo. Не просто банк вопросов — система, которая честно отслеживает реальный прогресс, приоритизирует слабые темы и не даёт забросить подготовку.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Мобильное приложение (React Native / Expo), которое потребляет этот API: [SAT GG Frontend](https://github.com/zhenisqur/Sat-Fast-Study-FRONTEND)
 
-## Description
+## Идея продукта
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Большинство SAT-приложений — это либо статичный банк вопросов (скучно, легко забросить), либо игрушка с фейковыми уровнями без реальной методики за ней. Мы делаем третье: **ежедневный ассистент**, который на основе реальных данных о прогрессе ученика говорит "делай ровно это сегодня" — без необходимости самому разбираться, с чего начинать подготовку.
 
-## Project setup
+## Технологии
 
-```bash
-$ npm install
+- **NestJS** + **TypeScript**
+- **PostgreSQL** + **Prisma ORM** (с адаптером `@prisma/adapter-pg`)
+- **JWT** аутентификация (`@nestjs/jwt`, `passport-jwt`) + Google/Apple OAuth
+- **Docker Compose** для локальной БД
+
+## Архитектура
+
+Чёткое разделение по слоям в каждом модуле: `Controller → Service → Repository → Prisma`. Контроллер не знает про Prisma, сервис не пишет сырой SQL/Prisma-синтаксис напрямую (кроме простых случаев), репозиторий — единственное место с прямыми вызовами `prisma.*`.
+
+```
+src/
+├── common/
+│   ├── database/       # PrismaService, глобальный модуль подключения к БД
+│   ├── guards/          # JwtAuthGuard, RolesGuard
+│   └── decorators/        # @CurrentUser, @Roles
+├── modules/
+│   ├── auth/              # регистрация, логин, Google/Apple OAuth
+│   ├── users/               # профиль пользователя
+│   ├── sat/                   # вопросы, полноформатные тесты (в разработке)
+│   ├── levels/                  # Practice-режим: 50+50 уровней, дневная норма
+│   ├── study/                     # Study-режим: 30-уровневый путь по доменам SAT
+│   ├── ai/                          # AI-тьютор с защитой от математических галлюцинаций
+│   └── admin/                         # аналитика для админ-панели
+prisma/
+├── schema.prisma        # полная схема БД
+└── migrations/            # история миграций
+scripts/                    # batch-импорт контента (вопросы, уроки) из JSON
 ```
 
-## Compile and run the project
+## Ключевые механики API
+
+- **`/auth/*`** — email/password + Google/Apple OAuth, единая JWT-сессия
+- **`/levels/*`** — Practice-режим: 50 уровней на секцию (Math / Reading & Writing), дневная норма 15+15, каждая секция левелапится независимо
+- **`/study/*`** — Study-режим: единый путь из 30 официальных доменов College Board, два таба на уровень (Math + Grammar), честный mastery-gate — уровень открывается только когда все вопросы квиза отвечены верно хотя бы раз
+- **`/ai/tutor/*`** — сократический AI-тьютор: не спойлерит финальный ответ, ведёт ученика к решению пошагово, с независимой верификацией математических вычислений
+
+Полный контракт всех эндпоинтов — в [`API_CONTRACT.md`](./API_CONTRACT.md).
+
+## Запуск локально
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm install
+cp .env.example .env
 ```
 
-## Run tests
+В `.env` пропиши реальные значения (`DATABASE_URL`, `JWT_SECRET`, при необходимости `GOOGLE_CLIENT_ID`/`APPLE_CLIENT_ID`, `ANTHROPIC_API_KEY` для AI-тьютора).
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+docker compose up -d
+npx prisma generate
+npx prisma migrate deploy
+npm run start:dev
 ```
 
-## Deployment
+Сервер поднимется на `http://localhost:3000`.
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### Наполнение базы контентом
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+npx ts-node -r tsconfig-paths/register scripts/import-questions-json.ts "./seed-data/math/question-math.json"
+npx ts-node -r tsconfig-paths/register scripts/import-questions-json.ts "./seed-data/grammar/question-grammar-clean.json"
+npx ts-node -r tsconfig-paths/register scripts/import-all-lessons.ts "./seed-data/study/math"
+npx ts-node -r tsconfig-paths/register scripts/import-all-lessons.ts "./seed-data/study/grammar"
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+## Статус
 
-## Resources
+Основной цикл (регистрация → Practice → Study → прогресс) полностью реализован и протестирован end-to-end с реальным мобильным клиентом. В разработке: диагностика при онбординге, Mistake Review (модель уже в схеме БД, эндпоинт в работе), полноформатные adaptive-тесты.
 
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
