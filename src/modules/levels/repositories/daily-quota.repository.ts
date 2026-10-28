@@ -6,17 +6,32 @@ function todayDateOnly(): Date {
   return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
 }
 
+/** Prisma кидает P2002, когда нарушена уникальность (здесь: userId + date). */
+function isUniqueViolation(error: unknown): boolean {
+  return typeof error === 'object' && error !== null && (error as { code?: string }).code === 'P2002';
+}
+
 @Injectable()
 export class DailyQuotaRepository {
   constructor(private readonly prisma: PrismaService) {}
 
   async getOrCreateToday(userId: string) {
     const date = todayDateOnly();
-    return this.prisma.dailyQuota.upsert({
-      where: { userId_date: { userId, date } },
-      update: {},
-      create: { userId, date },
-    });
+    const where = { userId_date: { userId, date } };
+    try {
+      return await this.prisma.dailyQuota.upsert({
+        where,
+        update: {},
+        create: { userId, date },
+      });
+    } catch (error) {
+      // Два запроса пришли одновременно и оба пытались создать запись за сегодня.
+      // Один из них победил, поэтому просто читаем уже созданную строку.
+      if (!isUniqueViolation(error)) throw error;
+      const existing = await this.prisma.dailyQuota.findUnique({ where });
+      if (!existing) throw error;
+      return existing;
+    }
   }
 
   async incrementAnswered(userId: string, field: 'mathAnswered' | 'rwAnswered') {
