@@ -10,8 +10,9 @@ import { AdminModule } from './modules/admin/admin.module';
 import { StudyModule } from './modules/study/study.module';
 import { MistakesModule } from './modules/mistakes/mistakes.module';
 import { ProgressModule } from './modules/progress/progress.module';
+import { ReviewModule } from './modules/review/review.module';
 
 @Module({
-  imports: [ConfigModule, PrismaModule, AuthModule, UsersModule, SatModule, LevelsModule, AiModule, AdminModule, StudyModule, MistakesModule, ProgressModule],
+  imports: [ConfigModule, PrismaModule, AuthModule, UsersModule, SatModule, LevelsModule, AiModule, AdminModule, StudyModule, MistakesModule, ProgressModule, ReviewModule],
 })
 export class AppModule {}
