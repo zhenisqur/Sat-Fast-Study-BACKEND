@@ -1,9 +1,10 @@
-﻿import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { SatSection, AnswerCorrectness } from '@prisma/client';
 import { DailyQuotaRepository } from '../repositories/daily-quota.repository';
 import { UserLevelProgressRepository } from '../repositories/user-level-progress.repository';
 import { SubmitLevelAnswerDto } from '../dto/submit-level-answer.dto';
 import { PrismaService } from '@common/database/prisma.service';
+import { MistakesService } from '../../mistakes/mistakes.service';
 
 @Injectable()
 export class DailyQuotaService {
@@ -11,6 +12,7 @@ export class DailyQuotaService {
     private readonly dailyQuotaRepository: DailyQuotaRepository,
     private readonly userLevelProgressRepository: UserLevelProgressRepository,
     private readonly prisma: PrismaService,
+    private readonly mistakesService: MistakesService,
   ) {}
 
   // Отдаёт текущую дневную норму без записи ответа — для Dashboard,
@@ -38,27 +40,33 @@ export class DailyQuotaService {
       },
     });
 
-    if (correctness === 'INCORRECT') {
-      await this.prisma.mistakeReviewItem.upsert({
-        where: { userId_questionId: { userId, questionId: dto.questionId } },
-        update: { timesWrong: { increment: 1 }, resolved: false, lastWrongAt: new Date() },
-        create: { userId, questionId: dto.questionId },
-      });
-    } else {
-      await this.prisma.mistakeReviewItem.updateMany({
-        where: { userId, questionId: dto.questionId, resolved: false },
-        data: { resolved: true, resolvedAt: new Date() },
-      });
-    }
+    await this.mistakesService.recordAnswer(userId, dto.questionId, correctness === 'CORRECT');
 
     await this.dailyQuotaRepository.getOrCreateToday(userId);
     const field = section === 'MATH' ? 'mathAnswered' : 'rwAnswered';
     const quota = await this.dailyQuotaRepository.incrementAnswered(userId, field);
 
+    // Level up only once EVERY active question of the current level has been
+    // answered correctly at least once (was: +1 level on every correct answer).
     let leveledUp = false;
     if (correctness === 'CORRECT') {
-      await this.userLevelProgressRepository.incrementLevel(userId, section);
-      leveledUp = true;
+      const progress = await this.userLevelProgressRepository.findByUserAndSection(userId, section);
+      const currentLevel = progress?.currentLevel ?? 1;
+      if (question.section === section && question.level === currentLevel) {
+        const levelQuestions = await this.prisma.question.findMany({
+          where: { section, level: currentLevel, isActive: true },
+          select: { id: true },
+        });
+        const solved = await this.prisma.answerLog.findMany({
+          where: { userId, correctness: 'CORRECT', questionId: { in: levelQuestions.map((q) => q.id) } },
+          select: { questionId: true },
+          distinct: ['questionId'],
+        });
+        if (levelQuestions.length > 0 && solved.length === levelQuestions.length) {
+          await this.userLevelProgressRepository.incrementLevel(userId, section);
+          leveledUp = true;
+        }
+      }
     }
 
     const dailyNormReached = quota.mathAnswered >= quota.mathTarget && quota.rwAnswered >= quota.rwTarget;

@@ -17,9 +17,10 @@ export class UserLevelProgressRepository {
   async incrementLevel(userId: string, section: SatSection, maxLevel = 50) {
     const current = await this.findByUserAndSection(userId, section);
     const next = Math.min((current?.currentLevel ?? 1) + 1, maxLevel);
-    return this.prisma.userLevelProgress.update({
+    return this.prisma.userLevelProgress.upsert({
       where: { userId_section: { userId, section } },
-      data: { currentLevel: next },
+      update: { currentLevel: next },
+      create: { userId, section, currentLevel: next },
     });
   }
 }

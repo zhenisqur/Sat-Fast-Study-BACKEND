@@ -1,9 +1,10 @@
 ﻿import { Injectable } from '@nestjs/common';
 import { PrismaService } from '@common/database/prisma.service';
+import { localDate } from '@common/utils/local-date';
 
+// Local calendar day (DEFAULT_TIMEZONE, Asia/Almaty by default) instead of UTC.
 function todayDateOnly(): Date {
-  const now = new Date();
-  return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+  return localDate();
 }
 
 /** Prisma кидает P2002, когда нарушена уникальность (здесь: userId + date). */

@@ -1,5 +1,6 @@
 ﻿import { Injectable, NotFoundException, ForbiddenException, BadRequestException } from '@nestjs/common';
 import { PrismaService } from '@common/database/prisma.service';
+import { MistakesService } from '../../mistakes/mistakes.service';
 import { TOTAL_MATH_LEVELS, TOTAL_RW_LEVELS, resolveMathLevel, resolveRwLevel } from '../domains.catalog';
 
 type Tab = 'math' | 'grammar';
@@ -14,7 +15,25 @@ export interface PathNode {
 
 @Injectable()
 export class StudyService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly mistakesService: MistakesService,
+  ) {}
+
+  private resolveTab(sequenceLevel: number, tab: Tab) {
+    const resolved = tab === 'math' ? resolveMathLevel(sequenceLevel) : tab === 'grammar' ? resolveRwLevel(sequenceLevel) : null;
+    if (!resolved) {
+      throw new NotFoundException(tab === 'grammar' ? 'На этом уровне нет grammar-таба' : 'Уровень вне диапазона');
+    }
+    return resolved;
+  }
+
+  private async assertLevelOpen(userId: string, sequenceLevel: number) {
+    const progress = await this.getProgress(userId);
+    if (sequenceLevel > progress.currentSequenceLevel) {
+      throw new ForbiddenException('Этот уровень ещё заблокирован — пройди предыдущие');
+    }
+  }
 
   private async getProgress(userId: string) {
     const progress = await this.prisma.studyPathProgress.findUnique({ where: { userId } });
@@ -87,6 +106,7 @@ export class StudyService {
   async submitQuiz(userId: string, sequenceLevel: number, tab: Tab, answers: { questionId: string; userAnswer: string }[]) {
     const resolved = tab === 'math' ? resolveMathLevel(sequenceLevel) : resolveRwLevel(sequenceLevel);
     if (!resolved) throw new BadRequestException('Неверный таб для этого уровня');
+    await this.assertLevelOpen(userId, sequenceLevel);
 
     const questions = await this.prisma.question.findMany({
       where: { domain: resolved.domain.key, domainLevel: resolved.domainLevel },
@@ -128,8 +148,16 @@ export class StudyService {
   // помечает таб (math/grammar) пройденным и, если это разблокирует уровень,
   // продвигает currentSequenceLevel дальше.
   async submitSingleAnswer(userId: string, sequenceLevel: number, tab: Tab, questionId: string, userAnswer: string) {
+    const resolved = this.resolveTab(sequenceLevel, tab);
+    await this.assertLevelOpen(userId, sequenceLevel);
+
     const question = await this.prisma.question.findUnique({ where: { id: questionId } });
     if (!question) throw new NotFoundException('Вопрос не найден');
+    // The question must belong to THIS level/tab, otherwise answers from another
+    // level's quiz could complete the current one.
+    if (question.domain !== resolved.domain.key || question.domainLevel !== resolved.domainLevel) {
+      throw new BadRequestException('Вопрос не относится к этому уровню');
+    }
 
     const correct = userAnswer.trim().toUpperCase() === question.correctChoice.trim().toUpperCase();
 
@@ -143,6 +171,8 @@ export class StudyService {
         timeSpentSec: 0,
       },
     });
+
+    await this.mistakesService.recordAnswer(userId, questionId, correct);
 
     let tabCompleted = false;
     let leveledUp = false;

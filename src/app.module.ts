@@ -8,8 +8,9 @@ import { LevelsModule } from './modules/levels/levels.module';
 import { AiModule } from './modules/ai/ai.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { StudyModule } from './modules/study/study.module';
+import { MistakesModule } from './modules/mistakes/mistakes.module';
 
 @Module({
-  imports: [ConfigModule, PrismaModule, AuthModule, UsersModule, SatModule, LevelsModule, AiModule, AdminModule, StudyModule],
+  imports: [ConfigModule, PrismaModule, AuthModule, UsersModule, SatModule, LevelsModule, AiModule, AdminModule, StudyModule, MistakesModule],
 })
 export class AppModule {}
