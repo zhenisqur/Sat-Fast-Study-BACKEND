@@ -1,5 +1,6 @@
 ﻿import { Injectable } from '@nestjs/common';
 import { SatSection } from '@prisma/client';
+import { toPublicQuestion } from '@common/utils/question';
 import { LevelDefinitionRepository } from '../repositories/level-definition.repository';
 import { UserLevelProgressRepository } from '../repositories/user-level-progress.repository';
 
@@ -14,7 +15,7 @@ export class LevelService {
     const progress = await this.userLevelProgressRepository.findByUserAndSection(userId, section);
     const currentLevel = progress?.currentLevel ?? 1;
     const questions = await this.levelDefinitionRepository.findQuestionsForLevel(section, currentLevel);
-    return questions.map(({ correctChoice, ...safe }: any) => safe);
+    return questions.map(toPublicQuestion);
   }
 
   async getOverallProgress(userId: string) {

@@ -1,6 +1,7 @@
 ﻿import { Injectable, NotFoundException } from '@nestjs/common';
 import { QuestionRepository, QuestionFilter } from '../repositories/question.repository';
 import { QueryQuestionsDto } from '../dto/query-questions.dto';
+import { toPublicQuestion } from '@common/utils/question';
 
 @Injectable()
 export class QuestionService {
@@ -22,7 +23,6 @@ export class QuestionService {
 
   async getQuestionForStudent(id: string) {
     const question = await this.getQuestionOrThrow(id);
-    const { correctChoice, ...safeQuestion } = question;
-    return safeQuestion;
+    return toPublicQuestion(question);
   }
 }

@@ -2,6 +2,7 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import { Question } from '@prisma/client';
 import { PrismaService } from '@common/database/prisma.service';
 import { getOrCreateVirtualAttemptId } from '@common/utils/virtual-attempt';
+import { answerFeedback, assertAnswerShape, checkAnswer, serializeUserAnswer, toPublicQuestion } from '@common/utils/question';
 import { MistakesService } from '../mistakes/mistakes.service';
 import { ProgressService } from '../progress/progress.service';
 import { ReviewPoolService } from '../progress/review-pool.service';
@@ -94,7 +95,7 @@ export class ReviewService {
       fullXp: sessionNumberToday <= XP.REVIEW_FULL_XP_SESSIONS,
       size: picked.length,
       nothingToReview: false,
-      questions: picked.map(({ question: { correctChoice, ...safe }, reason }) => ({ ...safe, reason })),
+      questions: picked.map(({ question, reason }) => ({ ...toPublicQuestion(question), reason })),
     };
   }
 
@@ -103,13 +104,14 @@ export class ReviewService {
     const question = passed.find((q) => q.id === dto.questionId);
     if (!question) throw new BadRequestException('Эта задача не из пройденных тем');
 
-    const correct = dto.userAnswer.trim().toUpperCase() === question.correctChoice.trim().toUpperCase();
+    assertAnswerShape(question, dto);
+    const correct = checkAnswer(question, dto);
     await this.prisma.answerLog.create({
       data: {
         attemptId: await getOrCreateVirtualAttemptId(this.prisma, userId, 'virtual-review', 'Review (virtual)'),
         userId,
         questionId: question.id,
-        userAnswer: dto.userAnswer,
+        userAnswer: serializeUserAnswer(dto),
         correctness: correct ? 'CORRECT' : 'INCORRECT',
         timeSpentSec: dto.timeSpentSec ?? 0,
       },
@@ -120,8 +122,7 @@ export class ReviewService {
 
     return {
       correct,
-      correctChoice: correct ? null : question.correctChoice,
-      explanation: correct ? null : question.explanation,
+      ...answerFeedback(question, correct),
       xpGained: xpGained + events.bonusXp,
       mistakeResolved: resolved,
       daily: events,

@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '@common/database/prisma.service';
+import { toPublicQuestion } from '@common/utils/question';
 
 /** A question leaves the mistake list after this many correct answers in a row. */
 export const MISTAKE_RESOLVE_STREAK = 2;
@@ -38,11 +39,11 @@ export class MistakesService {
       include: { question: true },
       orderBy: { lastWrongAt: 'desc' },
     });
-    return items.map(({ question: { correctChoice, ...question }, ...item }) => ({
+    return items.map(({ question, ...item }) => ({
       questionId: item.questionId,
       timesWrong: item.timesWrong,
       correctStreak: item.correctStreak,
-      question,
+      question: toPublicQuestion(question),
     }));
   }
 }

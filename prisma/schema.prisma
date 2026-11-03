@@ -19,6 +19,12 @@ enum SatSection {
   MATH
 }
 
+// CHOICE — вопрос с вариантами A-D; FILL — пропуски, которые заполняются словами из банка (новый формат урока)
+enum QuestionKind {
+  CHOICE
+  FILL
+}
+
 enum QuestionDifficulty {
   EASY
   MEDIUM
@@ -128,13 +134,24 @@ model Question {
   level              Int
   orderInLevel       Int
   difficulty         QuestionDifficulty
-  stem               String             @db.Text
-  choiceA            String
-  choiceB            String
-  choiceC            String
-  choiceD            String
-  correctChoice      String
-  explanation        String             @db.Text
+  kind               QuestionKind       @default(CHOICE)
+  title              String? // заголовок карточки, напр. "Заполни пропуски"
+  stem               String             @db.Text // для FILL — текст с "___" вместо пропусков (для тьютора/админки)
+  // ---- CHOICE ----
+  choiceA            String?
+  choiceB            String?
+  choiceC            String?
+  choiceD            String?
+  correctChoice      String?
+  // ---- FILL ----
+  parts              Json? // (string | null)[]: текст, null = пропуск, "\n" = перенос
+  options            Json? // string[]: банк слов/чисел
+  answers            Json? // number[]: для каждого пропуска по порядку — индекс в options
+  // ---- объяснение ----
+  explanation        String             @db.Text // плоский текст (для всех видов)
+  explainRule        String? // короткое правило в заголовке
+  explainParagraphs  Json? // string[]
+  explainExamples    Json? // string[]
   isActive           Boolean            @default(true)
   createdAt          DateTime           @default(now())
   domain             String?

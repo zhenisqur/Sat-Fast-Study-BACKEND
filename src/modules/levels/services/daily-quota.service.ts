@@ -5,6 +5,7 @@ import { UserLevelProgressRepository } from '../repositories/user-level-progress
 import { SubmitLevelAnswerDto } from '../dto/submit-level-answer.dto';
 import { PrismaService } from '@common/database/prisma.service';
 import { MistakesService } from '../../mistakes/mistakes.service';
+import { checkAnswer } from '@common/utils/question';
 
 @Injectable()
 export class DailyQuotaService {
@@ -26,8 +27,7 @@ export class DailyQuotaService {
     const question = await this.prisma.question.findUnique({ where: { id: dto.questionId } });
     if (!question) throw new NotFoundException('Вопрос не найден');
 
-    const correctness: AnswerCorrectness =
-      dto.userAnswer.trim().toUpperCase() === question.correctChoice.trim().toUpperCase() ? 'CORRECT' : 'INCORRECT';
+    const correctness: AnswerCorrectness = checkAnswer(question, dto) ? 'CORRECT' : 'INCORRECT';
 
     await this.prisma.answerLog.create({
       data: {

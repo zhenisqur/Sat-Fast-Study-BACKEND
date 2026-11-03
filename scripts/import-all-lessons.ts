@@ -11,61 +11,9 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
+import { LessonFile, validateLesson } from './lesson-format';
 
-interface LessonFile {
-  domain: string;
-  domainLevel: number;
-  topic: string;
-  sequenceLevel: number;
-  scenarios: { order: number; title: string; content: string }[];
-  quiz: {
-    orderInLevel: number;
-    stem: string;
-    choiceA: string;
-    choiceB: string;
-    choiceC: string;
-    choiceD: string;
-    correctChoice: string;
-    explanation: string;
-    difficulty: string;
-  }[];
-}
-
-function validateLesson(fileName: string, data: any): string[] {
-  const errors: string[] = [];
-
-  if (!data.domain) errors.push('нет поля domain');
-  if (!data.domainLevel) errors.push('нет поля domainLevel');
-  if (!data.topic) errors.push('нет поля topic');
-  if (!data.sequenceLevel) errors.push('нет поля sequenceLevel');
-
-  if (!Array.isArray(data.scenarios) || data.scenarios.length === 0) {
-    errors.push('scenarios пустой или отсутствует');
-  } else {
-    data.scenarios.forEach((s: any, i: number) => {
-      if (!s.order) errors.push(`scenarios[${i}]: нет order`);
-      if (!s.title?.trim()) errors.push(`scenarios[${i}]: пустой title`);
-      if (!s.content?.trim()) errors.push(`scenarios[${i}]: пустой content`);
-    });
-  }
-
-  if (!Array.isArray(data.quiz) || data.quiz.length === 0) {
-    errors.push('quiz пустой или отсутствует');
-  } else {
-    data.quiz.forEach((q: any, i: number) => {
-      if (!q.stem?.trim()) errors.push(`quiz[${i}]: пустой stem`);
-      if (!q.correctChoice?.trim()) errors.push(`quiz[${i}]: нет correctChoice`);
-      if (!['A', 'B', 'C', 'D'].includes(q.correctChoice?.trim().toUpperCase())) {
-        errors.push(`quiz[${i}]: correctChoice должен быть A/B/C/D, получено "${q.correctChoice}"`);
-      }
-      if (!q.difficulty || !['EASY', 'MEDIUM', 'HARD'].includes(q.difficulty.toUpperCase())) {
-        errors.push(`quiz[${i}]: difficulty должен быть EASY/MEDIUM/HARD, получено "${q.difficulty}"`);
-      }
-    });
-  }
-
-  return errors;
-}
+// Формат урока и проверка (choice + fill) — общие с import-lesson.ts.
 
 async function main() {
   const folderPath = process.argv[2];
@@ -92,7 +40,7 @@ async function main() {
     try {
       const raw = fs.readFileSync(filePath, 'utf-8');
       const data = JSON.parse(raw);
-      const errors = validateLesson(fileName, data);
+      const errors = validateLesson(data);
 
       if (errors.length > 0) {
         hasErrors = true;

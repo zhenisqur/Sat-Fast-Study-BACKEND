@@ -2,6 +2,7 @@
 import { JwtAuthGuard } from '@common/guards/jwt-auth.guard';
 import { CurrentUser } from '@common/decorators/current-user.decorator';
 import { StudyService } from '../services/study.service';
+import { StudyAnswerDto, SubmitQuizDto } from '../dto/study-answer.dto';
 
 @UseGuards(JwtAuthGuard)
 @Controller('study')
@@ -34,9 +35,9 @@ export class StudyController {
     @CurrentUser() user: { userId: string },
     @Param('sequenceLevel', ParseIntPipe) sequenceLevel: number,
     @Param('tab') tab: 'math' | 'grammar',
-    @Body() body: { questionId: string; userAnswer: string },
+    @Body() body: StudyAnswerDto,
   ) {
-    return this.studyService.submitSingleAnswer(user.userId, sequenceLevel, tab, body.questionId, body.userAnswer);
+    return this.studyService.submitSingleAnswer(user.userId, sequenceLevel, tab, body.questionId, body);
   }
 
   @Post('level/:sequenceLevel/:tab/submit-quiz')
@@ -44,7 +45,7 @@ export class StudyController {
     @CurrentUser() user: { userId: string },
     @Param('sequenceLevel', ParseIntPipe) sequenceLevel: number,
     @Param('tab') tab: 'math' | 'grammar',
-    @Body() body: { answers: { questionId: string; userAnswer: string }[] },
+    @Body() body: SubmitQuizDto,
   ) {
     return this.studyService.submitQuiz(user.userId, sequenceLevel, tab, body.answers);
   }

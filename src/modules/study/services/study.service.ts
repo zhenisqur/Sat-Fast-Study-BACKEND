@@ -1,6 +1,8 @@
 ﻿import { Injectable, NotFoundException, ForbiddenException, BadRequestException } from '@nestjs/common';
 import { Question } from '@prisma/client';
 import { PrismaService } from '@common/database/prisma.service';
+import { getOrCreateVirtualAttemptId } from '@common/utils/virtual-attempt';
+import { UserAnswerInput, answerFeedback, assertAnswerShape, checkAnswer, serializeUserAnswer, toPublicQuestion } from '@common/utils/question';
 import { MistakesService } from '../../mistakes/mistakes.service';
 import { DailyEvents, ProgressService } from '../../progress/progress.service';
 import { XP } from '../../progress/xp.rules';
@@ -203,13 +205,13 @@ export class StudyService {
       reinforcement,
       // На закреплении объяснение кратко: только первый сценарий (пустой массив сломал бы текущий экран урока).
       scenarios: reinforcement ? scenarios.slice(0, 1) : scenarios,
-      quiz: [...base, ...extras].map(({ correctChoice, ...safe }) => ({ ...safe, fromMistakes: extraIds.has(safe.id) })),
+      quiz: [...base, ...extras].map((q) => ({ ...toPublicQuestion(q), fromMistakes: extraIds.has(q.id) })),
     };
   }
 
   // Батч-сдача квиза целиком (оставлена для обратной совместимости) — нужно ответить
   // верно на ВСЕ базовые вопросы разом за один запрос.
-  async submitQuiz(userId: string, sequenceLevel: number, tab: Tab, answers: { questionId: string; userAnswer: string }[]) {
+  async submitQuiz(userId: string, sequenceLevel: number, tab: Tab, answers: ({ questionId: string } & UserAnswerInput)[]) {
     const resolved = this.resolveTab(sequenceLevel, tab);
     await this.assertLevelAccess(userId, sequenceLevel);
     const { base } = await this.getQuizQuestions(userId, resolved, tab);
@@ -221,13 +223,9 @@ export class StudyService {
     const results = answers.map((a) => {
       const question = base.find((q) => q.id === a.questionId);
       if (!question) throw new NotFoundException(`Вопрос ${a.questionId} не найден в этом квизе`);
-      const correct = a.userAnswer.trim().toUpperCase() === question.correctChoice.trim().toUpperCase();
-      return {
-        questionId: a.questionId,
-        correct,
-        correctChoice: correct ? null : question.correctChoice,
-        explanation: correct ? null : question.explanation,
-      };
+      assertAnswerShape(question, a);
+      const correct = checkAnswer(question, a);
+      return { questionId: a.questionId, correct, ...answerFeedback(question, correct) };
     });
 
     const allCorrect = results.every((r) => r.correct);
@@ -241,7 +239,7 @@ export class StudyService {
 
   // Один вопрос квиза за раз — с мгновенным фидбеком. ОСНОВНОЙ метод.
   // Таб пройден, когда ВСЕ базовые вопросы уровня хоть раз отвечены верно.
-  async submitSingleAnswer(userId: string, sequenceLevel: number, tab: Tab, questionId: string, userAnswer: string) {
+  async submitSingleAnswer(userId: string, sequenceLevel: number, tab: Tab, questionId: string, input: UserAnswerInput) {
     const resolved = this.resolveTab(sequenceLevel, tab);
     await this.assertLevelAccess(userId, sequenceLevel);
 
@@ -250,15 +248,16 @@ export class StudyService {
     // Вопрос должен быть из квиза ЭТОГО уровня/таба — иначе ответы с другого уровня засчитали бы текущий.
     if (!question) throw new BadRequestException('Вопрос не относится к этому уровню');
 
-    const correct = userAnswer.trim().toUpperCase() === question.correctChoice.trim().toUpperCase();
+    assertAnswerShape(question, input);
+    const correct = checkAnswer(question, input);
     const firstTry = (await this.prisma.answerLog.count({ where: { userId, questionId } })) === 0;
 
     await this.prisma.answerLog.create({
       data: {
-        attemptId: await this.getOrCreateStudyAttemptId(userId),
+        attemptId: await getOrCreateVirtualAttemptId(this.prisma, userId, 'virtual-study-practice', 'Study Practice (virtual)'),
         userId,
         questionId,
-        userAnswer,
+        userAnswer: serializeUserAnswer(input),
         correctness: correct ? 'CORRECT' : 'INCORRECT',
         timeSpentSec: 0,
       },
@@ -292,8 +291,7 @@ export class StudyService {
 
     return {
       correct,
-      correctChoice: correct ? null : question.correctChoice,
-      explanation: correct ? null : question.explanation,
+      ...answerFeedback(question, correct),
       tabCompleted,
       leveledUp,
       xpGained,
@@ -334,23 +332,5 @@ export class StudyService {
     const { count } = await this.prisma.studyPathProgress.updateMany({ where: guard, data });
 
     return { tabNewlyDone: count > 0, leveledUp: count > 0 && levelComplete };
-  }
-
-  // "Виртуальный" TestAttempt, чтобы AnswerLog (который требует attemptId)
-  // мог логировать ответы из режима "Изучение" без полноформатного теста.
-  private async getOrCreateStudyAttemptId(userId: string): Promise<string> {
-    const virtualTest = await this.prisma.test.upsert({
-      where: { id: 'virtual-study-practice' },
-      update: {},
-      create: { id: 'virtual-study-practice', title: 'Study Practice (virtual)', isPublished: false },
-    });
-    const existing = await this.prisma.testAttempt.findFirst({
-      where: { userId, testId: virtualTest.id, status: 'IN_PROGRESS' },
-    });
-    if (existing) return existing.id;
-    const created = await this.prisma.testAttempt.create({
-      data: { userId, testId: virtualTest.id, status: 'IN_PROGRESS' },
-    });
-    return created.id;
   }
 }
