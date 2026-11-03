@@ -9,7 +9,9 @@
 //
 // 2) fill (новый формат, как в lesson-demo):
 //    { "kind": "fill", "orderInLevel": 2, "difficulty": "MEDIUM", "title": "Заполни пропуски",
-//      "parts": ["3x + 7 = 22", "\n", "3x =", null, "\n", "x =", null],   // null = пропуск, "\n" = перенос
+//      "parts": ["3x + 7 = 22", "\n", "3x =", null, "\n", "x =", null],   // null = пропуск, "\n" = перенос строки (шаг решения)
+//      // "\n" — отдельный элемент; перенос внутри текста ("3x =\nx =") импортёр сам вынесет в отдельный элемент.
+//      // Нельзя: начинать/заканчивать переносом, два переноса подряд.
 //      "options": ["5", "29", "15", "3"],                                // банк слов/чисел
 //      "answers": [2, 0],                                                // для каждого пропуска — индекс в options
 //      "explain": { "rule": "...", "paragraphs": ["..."], "examples": ["..."] } }
@@ -84,6 +86,40 @@ function validateExplain(prefix: string, explain: any, required: boolean, errors
   if (required && !(explain.paragraphs?.length > 0)) errors.push(`${prefix}: explain.paragraphs пустой`);
 }
 
+/** Перенос строки в parts — отдельный элемент, ровно "\n" (так его рисует экран урока: part === '\n'). */
+export const LINE_BREAK = '\n';
+
+/**
+ * Приводит parts к виду, который понимает экран урока:
+ * - перенос внутри текста ("3x =\nx =", в том числе \r\n) выносится в отдельный элемент "\n";
+ * - у текстовых кусков обрезаются пробелы по краям, пустые куски выкидываются;
+ * - null (пропуск) не трогается.
+ */
+export function normalizeParts(parts: (string | null)[]): (string | null)[] {
+  const out: (string | null)[] = [];
+  for (const part of parts) {
+    if (part === null) { out.push(null); continue; }
+    const pieces = part.replace(/\r\n?/g, LINE_BREAK).split(LINE_BREAK);
+    pieces.forEach((piece, i) => {
+      if (i > 0) out.push(LINE_BREAK);
+      const text = piece.trim();
+      if (text) out.push(text);
+    });
+  }
+  return out;
+}
+
+/** Ошибки, которые нормализация не исправляет. */
+function validateLineBreaks(prefix: string, parts: (string | null)[]): string[] {
+  const errors: string[] = [];
+  if (parts[0] === LINE_BREAK) errors.push(`${prefix}: parts не может начинаться с переноса "\\n"`);
+  if (parts[parts.length - 1] === LINE_BREAK) errors.push(`${prefix}: parts не может заканчиваться переносом "\\n"`);
+  parts.forEach((x, i) => {
+    if (x === LINE_BREAK && parts[i + 1] === LINE_BREAK) errors.push(`${prefix}: два переноса "\\n" подряд (элементы ${i} и ${i + 1}) — пустая строка в решении`);
+  });
+  return errors;
+}
+
 export function validateQuizItem(q: any, i: number): string[] {
   const errors: string[] = [];
   const p = `quiz[${i}]`;
@@ -104,6 +140,8 @@ export function validateQuizItem(q: any, i: number): string[] {
   } else if (kind === 'fill') {
     if (!Array.isArray(q.parts) || !q.parts.every((x: unknown) => x === null || typeof x === 'string')) {
       errors.push(`${p}: parts должен быть массивом строк и null (null = пропуск)`);
+    } else {
+      errors.push(...validateLineBreaks(p, normalizeParts(q.parts)));
     }
     if (!isStringArray(q.options) || q.options.length < 2) errors.push(`${p}: options — минимум 2 строки`);
     else if (new Set(q.options.map((o: string) => o.trim())).size !== q.options.length) errors.push(`${p}: в options есть повторы`);
@@ -150,7 +188,7 @@ export function validateLesson(data: any): string[] {
 
 /** Текст задачи для тьютора/админки и дедупликации: пропуски -> "___". */
 export function fillStem(parts: (string | null)[]): string {
-  return parts
+  return normalizeParts(parts)
     .map((x) => (x === null ? '___' : x))
     .join(' ')
     .replace(/ ?\n ?/g, '\n')
@@ -167,11 +205,12 @@ export function quizItemToQuestionData(q: QuizItem) {
   };
 
   if (q.kind === 'fill') {
+    const parts = normalizeParts(q.parts);
     return {
       kind: 'FILL' as const,
       title: q.title?.trim() || 'Заполни пропуски',
-      stem: q.stem?.trim() || fillStem(q.parts),
-      parts: q.parts,
+      stem: q.stem?.trim() || fillStem(parts),
+      parts,
       options: q.options.map((o) => o.trim()),
       answers: q.answers,
       choiceA: null,

@@ -24,7 +24,7 @@ services:
     container_name: satgg-pgadmin
     restart: unless-stopped
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@satgg.local
+      PGADMIN_DEFAULT_EMAIL: admin@satgg.com 
       PGADMIN_DEFAULT_PASSWORD: admin
     ports:
       - '5050:80'
