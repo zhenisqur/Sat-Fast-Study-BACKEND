@@ -1,5 +1,5 @@
 ﻿import { Injectable } from '@nestjs/common';
-import { AnthropicProvider } from '../providers/anthropic.provider';
+import { AnthropicProvider, ANTHROPIC_MODEL } from '../providers/anthropic.provider';
 import { AiLogRepository } from '../repositories/ai-log.repository';
 import { buildTutorSystemPrompt } from '../promts/tutor-system.prompt';
 import { QuestionRepository } from '../../sat/repositories/question.repository';
@@ -33,7 +33,7 @@ export class TutorService {
 
     await this.aiLogRepository.logInteraction({
       userId, questionId: dto.questionId, prompt: systemPrompt, rawResponse, finalResponse,
-      modelName: 'claude-sonnet-4-6', flaggedForReview, latencyMs,
+      modelName: ANTHROPIC_MODEL, flaggedForReview, latencyMs,
     });
 
     return { message: finalResponse };
