@@ -2,7 +2,7 @@
 import { Question } from '@prisma/client';
 import { PrismaService } from '@common/database/prisma.service';
 import { MistakesService } from '../../mistakes/mistakes.service';
-import { ProgressService } from '../../progress/progress.service';
+import { DailyEvents, ProgressService } from '../../progress/progress.service';
 import { XP } from '../../progress/xp.rules';
 import {
   FREE_LEVELS,
@@ -268,6 +268,7 @@ export class StudyService {
     let xp = correct && firstTry ? XP.LESSON_ANSWER_FIRST_TRY : 0;
     let tabCompleted = false;
     let leveledUp = false;
+    let daily: DailyEvents = { streakExtended: false, goalCompleted: false, bonusXp: 0 };
 
     if (correct) {
       const solved = await this.prisma.answerLog.findMany({
@@ -282,10 +283,12 @@ export class StudyService {
         leveledUp = result.leveledUp;
         if (result.tabNewlyDone) xp += XP.LESSON_COMPLETED;
         if (result.leveledUp) xp += XP.LEVEL_COMPLETED;
+        // урок = один впервые пройденный таб -> засчитывается в цель дня / серию
+        if (result.tabNewlyDone) daily = await this.progressService.recordLessonCompleted(userId);
       }
     }
 
-    const xpGained = await this.progressService.addXp(userId, xp);
+    const xpGained = (await this.progressService.addXp(userId, xp)) + daily.bonusXp;
 
     return {
       correct,
@@ -297,6 +300,7 @@ export class StudyService {
       // 5-й уровень модуля пройден -> в профиле открывается герой
       moduleCompleted: leveledUp && sequenceLevel % MODULE_SIZE === 0,
       pathCompleted: leveledUp && sequenceLevel === TOTAL_PATH_LEVELS,
+      daily,
     };
   }
 
