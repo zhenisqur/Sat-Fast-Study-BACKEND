@@ -13,6 +13,12 @@ export class StudyController {
     return this.studyService.getPath(user.userId);
   }
 
+  // Кнопка "РАЗБЛОКИРОВАТЬ": открывает следующий модуль (5 уровней), если текущий пройден.
+  @Post('modules/unlock')
+  async unlockNextModule(@CurrentUser() user: { userId: string }) {
+    return this.studyService.unlockNextModule(user.userId);
+  }
+
   // tab: "math" | "grammar"
   @Get('level/:sequenceLevel/:tab')
   async getLevelContent(
