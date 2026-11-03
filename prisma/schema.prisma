@@ -43,26 +43,45 @@ enum AuthProvider {
   APPLE
 }
 
+// Интенсивность из онбординга -> цель дня:
+// LIGHT = 1 урок, NORMAL = 1 урок + 10 повторений, INTENSE = 2 урока + 10 повторений
+enum StudyIntensity {
+  LIGHT
+  NORMAL
+  INTENSE
+}
+
 model User {
-  id             String       @id @default(cuid())
-  email          String       @unique
-  passwordHash   String?      // nullable — у OAuth-юзеров пароля нет
-  fullName       String
-  role           Role         @default(STUDENT)
-  targetScore    Int?
-  age            Int?
-  hasTakenSat    Boolean?
-  previousScore  Int?
-  authProvider   AuthProvider @default(LOCAL)
-  providerId     String?      // sub от Google/Apple
-  createdAt      DateTime     @default(now())
-  updatedAt      DateTime     @updatedAt
+  id            String       @id @default(cuid())
+  email         String       @unique
+  passwordHash  String? // nullable — у OAuth-юзеров пароля нет
+  fullName      String
+  role          Role         @default(STUDENT)
+  targetScore   Int?
+  age           Int?
+  hasTakenSat   Boolean?
+  previousScore Int?
+  authProvider  AuthProvider @default(LOCAL)
+  providerId    String? // sub от Google/Apple
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  // ---- геймификация / цель дня ----
+  xp              Int            @default(0)
+  currentStreak   Int            @default(0)
+  longestStreak   Int            @default(0)
+  lastStreakDate  DateTime?      @db.Date // последний локальный день, когда выполнен минимум
+  timezone        String         @default("Asia/Almaty") // IANA, с телефона
+  studyIntensity  StudyIntensity @default(NORMAL)
+  // ---- подписка (пока ручной флаг; потом выставляет вебхук магазина) ----
+  hasSubscription Boolean        @default(false)
 
   attempts           TestAttempt[]
   aiLogs             AiInteractionLog[]
   answerLogs         AnswerLog[]
   levelProgress      UserLevelProgress[]
   dailyQuotas        DailyQuota[]
+  dailyProgress      DailyProgress[]
   mistakeReviewItems MistakeReviewItem[]
   studyPathProgress  StudyPathProgress[]
 
@@ -204,12 +223,35 @@ model StudyPathProgress {
   currentSequenceLevel Int      @default(1)
   mathTabDone          Boolean  @default(false)
   grammarTabDone       Boolean  @default(false)
+  unlockedModules      Int      @default(1) // модуль = 5 уровней; следующий открывается кнопкой "РАЗБЛОКИРОВАТЬ"
   updatedAt            DateTime @updatedAt
 
   user User @relation(fields: [userId], references: [id])
 
   @@map("study_path_progress")
 }
+
+// ---------- ЦЕЛЬ ДНЯ (заменяет DailyQuota) ----------
+model DailyProgress {
+  id               String   @id @default(cuid())
+  userId           String
+  date             DateTime @db.Date // локальная дата по User.timezone
+  lessonsCompleted Int      @default(0) // урок = один пройденный таб (math или grammar)
+  reviewAnswered   Int      @default(0)
+  reviewSessions   Int      @default(0)
+  lessonTarget     Int      @default(1)
+  reviewTarget     Int      @default(10)
+  minimumMet       Boolean  @default(false) // 1 урок ИЛИ 10 повторений -> серия
+  goalMet          Boolean  @default(false) // полная цель -> бонус XP
+  xpEarned         Int      @default(0)
+  updatedAt        DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, date])
+  @@map("daily_progress")
+}
+
 // ---------- ATTEMPTS ----------
 
 model TestAttempt {
@@ -245,6 +287,7 @@ model AnswerLog {
   question Question    @relation(fields: [questionId], references: [id])
 
   @@index([userId, questionId])
+  @@index([userId, createdAt])
   @@map("answer_logs")
 }
 
@@ -275,13 +318,14 @@ model AiInteractionLog {
 // ---------- MISTAKE REVIEW ----------
 
 model MistakeReviewItem {
-  id          String    @id @default(cuid())
-  userId      String
-  questionId  String
-  timesWrong  Int       @default(1)
-  resolved    Boolean   @default(false)
-  lastWrongAt DateTime  @default(now())
-  resolvedAt  DateTime?
+  id            String    @id @default(cuid())
+  userId        String
+  questionId    String
+  timesWrong    Int       @default(1)
+  correctStreak Int       @default(0) // верно подряд; при 2 задача уходит из списка
+  resolved      Boolean   @default(false)
+  lastWrongAt   DateTime  @default(now())
+  resolvedAt    DateTime?
 
   user     User     @relation(fields: [userId], references: [id])
   question Question @relation(fields: [questionId], references: [id])
@@ -292,11 +336,11 @@ model MistakeReviewItem {
 
 model LessonScenario {
   id          String   @id @default(cuid())
-  domain      String   // "algebra", "advanced_math" и т.д.
-  domainLevel Int      // 1-8 для algebra, 1-9 для advanced_math и т.д. (свой счётчик внутри домена)
-  order       Int      // 1-7 порядок сценария внутри урока
+  domain      String // "algebra", "advanced_math" и т.д.
+  domainLevel Int // 1-8 для algebra, 1-9 для advanced_math и т.д. (свой счётчик внутри домена)
+  order       Int // 1-7 порядок сценария внутри урока
   title       String
-  content     String   @db.Text  // сам текст объяснения "как решается"
+  content     String   @db.Text // сам текст объяснения "как решается"
   createdAt   DateTime @default(now())
 
   @@unique([domain, domainLevel, order])

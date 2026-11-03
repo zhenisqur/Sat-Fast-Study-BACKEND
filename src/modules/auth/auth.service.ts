@@ -4,6 +4,7 @@ import * as bcrypt from 'bcrypt';
 import { OAuth2Client } from 'google-auth-library';
 import appleSignin from 'apple-signin-auth';
 import { PrismaService } from '@common/database/prisma.service';
+import { isValidTimezone } from '@common/utils/local-date';
 import { RegisterDto } from './strategies/dto/register.dto';
 import { LoginDto } from './strategies/dto/login.dto';
 
@@ -30,18 +31,33 @@ export class AuthService {
         age: dto.age,
         hasTakenSat: dto.hasTakenSat,
         previousScore: dto.previousScore,
+        targetScore: dto.targetScore,
+        studyIntensity: dto.studyIntensity,
+        timezone: isValidTimezone(dto.timezone) ? dto.timezone : undefined,
         authProvider: 'LOCAL',
       },
     });
 
-    await this.prisma.userLevelProgress.createMany({
-      data: [
-        { userId: user.id, section: 'MATH', currentLevel: 1 },
-        { userId: user.id, section: 'READING_WRITING', currentLevel: 1 },
-      ],
-    });
+    await this.createInitialProgress(user.id);
 
     return this.buildAuthResponse(user.id, user.email, user.role);
+  }
+
+  // Новый пользователь: уровень 1 на пути (XP 0 и серия 0 — дефолты в users).
+  // userLevelProgress — для старого режима Практики, пока на него сидит фронт.
+  private async createInitialProgress(userId: string) {
+    await this.prisma.userLevelProgress.createMany({
+      data: [
+        { userId, section: 'MATH', currentLevel: 1 },
+        { userId, section: 'READING_WRITING', currentLevel: 1 },
+      ],
+      skipDuplicates: true,
+    });
+    await this.prisma.studyPathProgress.upsert({
+      where: { userId },
+      update: {},
+      create: { userId, currentSequenceLevel: 1 },
+    });
   }
 
   async login(dto: LoginDto) {
@@ -110,12 +126,7 @@ export class AuthService {
         },
       });
 
-      await this.prisma.userLevelProgress.createMany({
-        data: [
-          { userId: user.id, section: 'MATH', currentLevel: 1 },
-          { userId: user.id, section: 'READING_WRITING', currentLevel: 1 },
-        ],
-      });
+      await this.createInitialProgress(user.id);
     }
 
     return user;
